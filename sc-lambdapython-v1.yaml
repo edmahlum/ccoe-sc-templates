@@ -11,11 +11,12 @@ Parameters:
     Type: String
     Description: Provide the location of the file containing the lambda code
 Resources:
-  Type: AWS::Lambda::Function
-  Properties:
-    Runtime: python3.6
-    Timeout: 5
-    Handler: Ref! 'Hanlder'
-    Role: Ref! 'LambdaRole'
-    Code:
-      ZipFile: Ref! 'LambdaCode'
+  LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.6
+      Timeout: 5
+      Handler: Ref! 'Hanlder'
+      Role: Ref! 'LambdaRole'
+      Code:
+        ZipFile: Ref! 'LambdaCode'
