@@ -1,0 +1,35 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'DynamoDB ccoe compliant database.'
+Metadata:
+  'AWS::CloudFormation::Interface':
+    ParameterGroups:
+    - Label:
+        default: 'DynamoDB Configuration'
+      Parameters:
+      - DatabaseName
+      - IndexName
+    ParameterLabels:
+      TableName:
+        default: The name of your database
+      IndexName:
+        default: The name of your primary index
+Parameters:
+  TableName:
+    Type: String
+    Description: Provide the name of your DynamoDB table
+    ConstraintDescription: no spaces are allowed in the name
+    AllowedPattern: '/^\S*$/'
+  IndexName:
+    Type: String
+    Description: Provide the name of the DynamoDB table index
+    ConstraintDescription: no spaces are allowed in the name
+    AllowedPattern: '/^\S*$/'
+Resources:
+CustomerDatabase:
+  Type: 'AWS::DynamoDB::Table'
+  Properties:
+    TableName: !Ref 'TableName'
+    KeySchema:
+      - AttributeName: !Ref 'IndexName'
+         KeyType: String
