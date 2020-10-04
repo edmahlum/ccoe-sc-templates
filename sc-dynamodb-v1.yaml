@@ -26,10 +26,10 @@ Parameters:
     ConstraintDescription: no spaces are allowed in the name
     AllowedPattern: '/^\S*$/'
 Resources:
-CustomerDatabase:
-  Type: 'AWS::DynamoDB::Table'
-  Properties:
-    TableName: !Ref 'TableName'
-    KeySchema:
-      - AttributeName: !Ref 'IndexName'
-         KeyType: String
+  CustomerDatabase:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: !Ref 'TableName'
+      KeySchema:
+        - AttributeName: !Ref 'IndexName'
+           KeyType: String
