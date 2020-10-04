@@ -1,13 +1,13 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'DynamoDB ccoe compliant database.'
+Description: 'DynamoDB CCOE compliant database.'
 Metadata:
   'AWS::CloudFormation::Interface':
     ParameterGroups:
     - Label:
         default: 'DynamoDB Configuration'
       Parameters:
-      - DatabaseName
+      - TableName
       - IndexName
     ParameterLabels:
       TableName:
@@ -32,4 +32,4 @@ Resources:
       TableName: !Ref 'TableName'
       KeySchema:
         - AttributeName: !Ref 'IndexName'
-           KeyType: String
+          KeyType: String
