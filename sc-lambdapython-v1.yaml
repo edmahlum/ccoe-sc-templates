@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Lambda CCOE compliant python serverless function.'
+Parameters:
+  Handler:
+    Type: String
+    Description: Provide the name of your lambda handler
+  LambdaRole:
+    Type: String
+    Description: Provide the arn of the IAM role for the lambda
+  LambdaCode:
+    Type: String
+    Description: Provide the location of the file containing the lambda code
+Resources:
+  Type: AWS::Lambda::Function
+  Properties:
+    Runtime: python3.6
+    Timeout: 5
+    Handler: Ref! 'Hanlder'
+    Role: Ref! 'LambdaRole'
+    Code:
+      ZipFile: Ref! 'LambdaCode'
