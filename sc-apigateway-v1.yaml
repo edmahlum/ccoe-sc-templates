@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'DynamoDB CCOE compliant database.'
+Parameters:
+  APIGatewayName:
+    Type: String
+    Description: Provide the name of your API Gateway
+  LambdaURI:
+    Type: String
+    Description: The URI of the Lambda function
+  LambdaARN:
+    Type: String
+    Description: The ARN of the Lambda function
+Resources:
+  apiGateway:
+    Type: "AWS::ApiGateway::RestApi"
+    Properties:
+      Name: !Ref 'APIGatewayName'
+      Description: !Ref 'APIGatewayName'
+
+  apiGatewayRootMethod:
+    Type: "AWS::ApiGateway::Method"
+    Properties:
+      AuthorizationType: "NONE"
+      HttpMethod: "ANY"
+      Integration:
+        IntegrationHttpMethod: "POST"
+        Type: "AWS_PROXY"
+        Uri: !Ref 'LambdaURI'
+      ResourceId: !GetAtt "apiGateway.RootResourceId"
+      RestApiId: !Ref "apiGateway"
+
+  apiGatewayIamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: ''
+            Effect: 'Allow'
+            Principal:
+              Service:
+                - 'apigateway.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      Path: '/'
+      Policies:
+        - PolicyName: LambdaAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: 'Allow'
+                Action: 'lambda:*'
+                Resource: !Ref 'LambdaARN'
+
+  apiGatewayEndpointDeployment:
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      RestApiId:
+        Ref: apiGateway
+      Description: Automatically created by the RestApi construct
+    DependsOn:
+      - apiGatewayRootMethod
+
+  apiGatewayDeploymentStageProd:
+    Type: AWS::ApiGateway::Stage
+    Properties:
+      RestApiId:
+        Ref: apiGateway
+      DeploymentId:
+        Ref: apiGatewayEndpointDeployment
+      StageName: prod
+
+  EndpointproxyANYApiPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref 'LambdaARN'
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Join:
+          - ""
+          - - "arn:aws:execute-api:"
+            - Ref: AWS::Region
+            - ":"
+            - Ref: AWS::AccountId
+            - ":"
+            - !Ref 'apiGateway'
+            - "/*/*/*"
+
+Outputs:
+  Endpoint:
+    Value:
+      Fn::Join:
+        - ""
+        - - https://
+          - Ref: apiGateway
+          - .execute-api.
+          - Ref: AWS::Region
+          - "."
+          - Ref: AWS::URLSuffix
+          - /
+          - Ref: apiGatewayDeploymentStageProd
+          - /
