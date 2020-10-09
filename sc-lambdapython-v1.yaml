@@ -4,19 +4,40 @@ Parameters:
   Handler:
     Type: String
     Description: Provide the name of your lambda handler
-  LambdaRole:
-    Type: String
-    Description: Provide the arn of the IAM role for the lambda
   LambdaCode:
     Type: String
     Description: Provide the location of the file containing the lambda code
 Resources:
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: ''
+            Effect: 'Allow'
+            Principal:
+              Service:
+                - 'lambda.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      Path: "/"
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: arn:aws:logs:*:*:*
+
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
       Runtime: python3.6
       Timeout: 5
-      Handler: Ref! 'Hanlder'
-      Role: Ref! 'LambdaRole'
+      Handler: 'test.handler'
+      Role: !GetAtt LambdaExecutionRole.Arn
       Code:
         ZipFile: Ref! 'LambdaCode'
