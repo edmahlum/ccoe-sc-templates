@@ -13,13 +13,15 @@ Resources:
     Type: 'AWS::DynamoDB::Table'
     Properties:
       TableName: !Ref 'TableName'
-      AttributeDefinition:
+      AttributeDefinitions:
         - AttributeName: !Ref IndexName
           AttributeType: "S"
       KeySchema:
         - AttributeName: !Ref 'IndexName'
-          KeyType: Hash
-
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
 Outputs:
-  table_name:
+  TableName:
     Value: !Ref 'TableName'
