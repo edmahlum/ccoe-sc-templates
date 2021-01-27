@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: EMR_Launch Template
+Parameters:
+  ClusterKeyName:
+    Type: String
+    Description: SSH Key to use for the supporting Instances
+  EMRClusterName:
+    Type: String
+    Description: Name to use for the Cluster
+Resources:
+  EmrCluster:
+    Type: AWS::EMR::Cluster
+    Properties:
+      Applications:
+      - Name: Spark
+      - Name: Ganglia
+      Configurations:
+      - Classification: spark
+        ConfigurationProperties:
+          maximizeResourceAllocation: 'true'
+      Instances:
+        CoreInstanceGroup:
+          InstanceCount: 2
+          InstanceType: m3.xlarge
+          Name: Core Instance Group
+        Ec2KeyName:
+          Ref: ClusterKeyName
+        MasterInstanceGroup:
+          InstanceCount: 1
+          InstanceType: m3.xlarge
+          Name: Master Instance Group
+      JobFlowRole: !Ref EmrEc2InstanceProfile
+      Name:
+        Ref: EMRClusterName
+      ReleaseLabel: emr-4.7.1
+      ServiceRole: emr_service_role
+      VisibleToAllUsers: 'true'
+  EmrEc2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - EMR_EC2_DefaultRole

@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Amazon SageMaker notebook instance.
+
+Parameters:
+  DeploymentName:
+    Description: Name of the SageMaker deployment to launch this notebook to
+    Type: String
+  IAMRoleArn:
+      Description: The ARN of the IAM role
+      Type: String
+
+  InstanceType:
+    Description: The type of ML compute instance to launch for the notebook
+    Type: String
+    Default: ml.t2.medium
+    AllowedValues:
+      - ml.t2.medium
+      - ml.t2.large
+      - ml.t2.xlarge
+
+Resources:
+  NotebookInstance:
+    Type: "AWS::SageMaker::NotebookInstance"
+    Properties:
+      DirectInternetAccess: Enabled
+      NotebookInstanceName: !Sub '${AWS::StackName}'
+      InstanceType: !Ref InstanceType
+      RoleArn: !Ref IAMRoleArn

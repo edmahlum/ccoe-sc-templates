@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: S3 Bucket Template
+Parameters:
+  MyBucketName:
+    Type: String
+    Description: The name of the bucket
+Resources:
+  S3Bucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref MyBucketName
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Export:
+      Name : "MyBucketNameExport"
+  BucketArn:
+    Value: !GetAtt [S3Bucket, Arn]
+  BucketDomainName:
+    Value: !GetAtt [S3Bucket, DomainName]
+  BucketRegionalDomainName:
+    Value: !GetAtt [S3Bucket, RegionalDomainName]

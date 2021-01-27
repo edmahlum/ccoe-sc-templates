@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'API Gateway Rest API.'
+Parameters:
+  APIGatewayName:
+    Type: String
+    Description: Provide the name of your API Gateway
+Resources:
+  apiGateway:
+    Type: "AWS::ApiGateway::RestApi"
+    Properties:
+      Name: !Ref 'APIGatewayName'
+      Description: !Ref 'APIGatewayName'
