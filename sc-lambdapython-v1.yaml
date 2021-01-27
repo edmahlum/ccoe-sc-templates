@@ -4,9 +4,6 @@ Parameters:
   Handler:
     Type: String
     Description: Provide the name of your lambda handler
-  LambdaCode:
-    Type: String
-    Description: Provide the location of the file containing the lambda code
 Resources:
   LambdaExecutionRole:
     Type: AWS::IAM::Role
@@ -37,7 +34,15 @@ Resources:
     Properties:
       Runtime: python3.6
       Timeout: 5
-      Handler: 'test.handler'
+      Handler: 'handler.test'
       Role: !GetAtt LambdaExecutionRole.Arn
       Code:
-        ZipFile: Ref! 'LambdaCode'
+        ZipFile: |
+          import json
+
+          def handler(event,context):
+
+            return {
+                'statusCode': 200,
+                'body': json.dumps('Hello')
+            }
