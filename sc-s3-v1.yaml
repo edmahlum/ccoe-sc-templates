@@ -13,8 +13,6 @@ Resources:
 Outputs:
   BucketName:
     Value: !Ref S3Bucket
-    Export:
-      Name : "MyBucketNameExport"
   BucketArn:
     Value: !GetAtt [S3Bucket, Arn]
   BucketDomainName:
