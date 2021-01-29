@@ -1,0 +1,179 @@
+{ "Products" : [
+  {
+    "ID": "SprockDynamo",
+    "Name":"Sprocket DynamoDB",
+    "Description":"The Sprocket CCOE approved DynamoDB for security and compliance requirements. Supports passing in the name of the table and the name of the index",
+    "Owner":"Sprockets Database Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-dynamo-details.html",
+    "Versions":[
+        {
+          "VersionName":"1.0",
+          "VersionDescription":"Initial version",
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
+        },
+        {
+          "VersionName":"2.0",
+          "VersionDescription":"Base version",
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
+        }],
+    "Portfolios":[
+      {"PortfolioID":"serverlessInfa"},
+      {"PortfolioID":"scienceInfa"}]
+    },
+    {
+    "ID":"SprockLambdaPython",
+    "Name":"Sprocket Lambda",
+    "Description":"The Sprocket CCOE approved Lambda using Python for security and compliance requirements. Pass in the GitHub location of your Serverless code.",
+    "Owner":"Sprockets Compute Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-lambda-details.html",
+    "Versions":[
+      {
+        "VersionName":"1.0",
+        "VersionDescription":"Initial version",
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"serverlessInfa"},
+      {"PortfolioID":"scienceInfa"}]
+    },
+    {
+    "ID":"SprockAPIGWLambda",
+    "Name":"Sprocket API Gateway for Lambda",
+    "Description":"The Sprocket CCOE approved Lambda API Gateway for security and compliance requirements. The API Gateway connects to a Sprocket Lambda and provides an addressable URL",
+    "Owner":"Sprockets Severless Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-apigw-lambda-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"serverlessInfa"},
+      {"PortfolioID":"ccoeitInfa"}]
+    },
+    {
+    "ID":"SprockEMR",
+    "Name":"Sprocket Elastic Map Reduce",
+    "Description":"The Sprocket EMR CCOE approved for security and compliance requirements. The EMR cluster accepts the cluster name and key as parameters and runs on an mx3 xlarge ec2.",
+    "Owner":"Sprockets Compute Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-emr-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ec2Infa"},
+      {"PortfolioID":"scienceInfa"},
+      {"PortfolioID":"ccoeitInfa"}]
+    },
+    {
+    "ID":"SprockIAMRoleSagemaker",
+    "Name":"Sprocket IAM Role for Sagemaker",
+    "Description":"The Sprocket Sagemaker IAM role is CCOE approved for security and compliance requirements. The IAM role grants the minimum necessary permissions for executing Sagemaker.",
+    "Owner":"Sprockets IT Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-lamp-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-iam-role-sagemaker-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ccoeitInfa"},
+      {"PortfolioID":"scienceInfa"}]
+    },
+    {
+    "ID":"SprockLamp",
+    "Name":"Sprocket Lamp Server",
+    "Description":"The Sprocket Lamp Server is CCOE approved for security and compliance requirements. Create a LAMP stack using a single EC2 instance and a local MySQL database for storage. This installs the packages and files necessary to deploy the Apache web server, PHP, and MySQL.",
+    "Owner":"Sprockets IT Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-lamp-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ec2Infa"}]
+    },
+    {
+    "ID":"SprockRDS",
+    "Name":"Sprocket RDS",
+    "Description":"The Sprocket RDS database is CCOE approved for security and compliance requirements. The RDS database accepts username and password as parameters.",
+    "Owner":"Sprockets IT Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-rds-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ec2Infa"}]
+    },
+    {
+    "ID":"SprockPrivateS3",
+    "Name":"Sprocket Private S3 Bucket",
+    "Description":"The Sprocket Private S3 Bucket is CCOE approved for security and compliance requirements. The S3 bucket accepts the name of the bucket as a parameter.",
+    "Owner":"Sprockets IT Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-s3-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ec2Infa"},
+      {"PortfolioID":"scienceInfa"},
+      {"PortfolioID":"serverlessInfa"}]
+    },
+    {
+    "ID":"SprockSageMaker",
+    "Name":"Sprocket SageMaker Notebook",
+    "Description":"The Sprocket Sagemaker Notebook is CCOE approved for security and compliance requirements. An Amazon SageMaker notebook instance is a machine learning (ML) compute instance running the Jupyter Notebook App. SageMaker manages creating the instance and related resources. Use Jupyter notebooks in your notebook instance to prepare and process data, write code to train models, deploy models to SageMaker hosting, and test or validate your models.",
+    "Owner":"Sprockets Science Team",
+    "Distributor":"Spacely Sprockets CCOE",
+    "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+    "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+    "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-sagemaker-details.html",
+    "Versions":[
+      {
+      "VersionName":"1.0",
+      "VersionDescription":"Initial version",
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
+      }],
+    "Portfolios":[
+      {"PortfolioID":"ec2Infa"},
+      {"PortfolioID":"scienceInfa"}]
+    }
+  ]
+}
