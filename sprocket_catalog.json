@@ -53,8 +53,8 @@
           "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
         }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa"},
-      {"PortfolioID":"scienceInfa"}]
+      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockLambdaPython",
@@ -72,8 +72,8 @@
         "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa"},
-      {"PortfolioID":"scienceInfa"}]
+      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockAPIGWLambda",
@@ -91,8 +91,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa"},
-      {"PortfolioID":"ccoeitInfa"}]
+      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockEMR",
@@ -110,9 +110,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa"},
-      {"PortfolioID":"scienceInfa"},
-      {"PortfolioID":"ccoeitInfa"}]
+      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockIAMRoleSagemaker",
@@ -130,8 +130,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-iam-role-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ccoeitInfa"},
-      {"PortfolioID":"scienceInfa"}]
+      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockLamp",
@@ -149,7 +149,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa"}]
+      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}]
     },
     {
     "ID":"SprockRDS",
@@ -167,7 +167,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa"}]
+      {"PortfolioID":"ec2Infa","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
     },
     {
     "ID":"SprockPrivateS3",
@@ -185,9 +185,10 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa"},
-      {"PortfolioID":"scienceInfa"},
-      {"PortfolioID":"serverlessInfa"}]
+      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
+      ]
     },
     {
     "ID":"SprockSageMaker",
@@ -205,7 +206,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"scienceInfa"},
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
       {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
     ]
     }
