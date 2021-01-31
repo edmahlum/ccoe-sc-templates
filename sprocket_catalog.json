@@ -206,7 +206,7 @@
       }],
     "Portfolios":[
       {"PortfolioID":"scienceInfa"},
-      {"PortfolioID":"ec2Infa", "Constraints":[{"TagUpdateConstraint":"True"}]}
+      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
     ]
     }
   ]
