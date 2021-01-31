@@ -29,8 +29,8 @@
 		"Name":"Sprocket CCOE IT Infra",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE"
-	}
-  ],
+  }
+],
   "Products" : [
   {
     "ID": "SprockDynamo",
@@ -205,8 +205,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa"},
-      {"PortfolioID":"scienceInfa"}]
+      {"PortfolioID":"scienceInfa"},
+      {"PortfolioID":"ec2Infa", "Constraints":[{"TagUpdateConstraint":"True"}]}
+    ]
     }
   ]
 }
