@@ -1,34 +1,85 @@
 {
+  "TagOptions": [
+    {"ID":"Dept10005","Key":"Department","Value":"10005","Active":"1"},
+    {"ID":"Dept10007","Key":"Department","Value":"10007","Active":"1"},
+    {"ID":"Dept10008","Key":"Department","Value":"10008","Active":"1"},
+    {"ID":"Dept10200","Key":"Department","Value":"10200","Active":"1"},
+    {"ID":"Dept10201","Key":"Department","Value":"10201","Active":"1"},
+    {"ID":"Dept10202","Key":"Department","Value":"10202","Active":"1"},
+    {"ID":"Dept10203","Key":"Department","Value":"10203","Active":"True"},
+    {"ID":"Dept10501","Key":"Department","Value":"10501","Active":"True"},
+    {"ID":"Dept10700","Key":"Department","Value":"10700","Active":"True"},
+    {"ID":"EnvDev","Key":"Environment","Value":"Development","Active":"True"},
+    {"ID":"EnvStg","Key":"Environment","Value":"Stage","Active":"True"},
+    {"ID":"EnvTst","Key":"Environment","Value":"Test","Active":"True"},
+    {"ID":"EnvAlp","Key":"Environment","Value":"Alpha","Active":"True"},
+    {"ID":"EnvBet","Key":"Environment","Value":"Beta","Active":"True"},
+    {"ID":"EnvPrd","Key":"Environment","Value":"Production","Active":"True"},
+    {"ID":"DataHgh","Key":"DataClassification","Value":"High","Active":"True"},
+    {"ID":"DataMed","Key":"DataClassification","Value":"Medium","Active":"True"},
+    {"ID":"DataLow","Key":"DataClassification","Value":"Low","Active":"True"}
+  ],
 	"Portfolios": [
   {
     "ID":"serverlessInfa",
 		"Name":"Sprocket CCOE Serverless Infra",
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE"
+		"Provider":"Spacely Sprockets CCOE",
+    "Principals":[
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketServerlessUser"}
+    ],
+    "TagOptions":[
+      {"ID":"EnvDev"},
+      {"ID":"EnvStg"},
+      {"ID":"EnvTst"},
+      {"ID":"EnvAlp"},
+      {"ID":"EnvBet"},
+      {"ID":"EnvPrd"},
+      {"ID":"DataHgh"},
+      {"ID":"DataMed"},
+      {"ID":"DataLow"}
+    ]
 	},
 	{
     "ID":"containersInfa",
 		"Name":"Sprocket CCOE Container Infra",
 		"Description":"Spacely Sprocket CCOE approved container infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE"
+		"Provider":"Spacely Sprockets CCOE",
+    "Principals":[
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketContainerUser"}
+      ]
 	},
 	{
     "ID":"ec2Infa",
 		"Name":"Sprocket CCOE EC2 Infra",
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE"
+		"Provider":"Spacely Sprockets CCOE",
+    "Principals":[
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketScienceUser"},
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketComputerUser"}
+      ]
 	},
 	{
     "ID":"scienceInfa",
 		"Name":"Sprocket CCOE Science Infra",
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE"
+		"Provider":"Spacely Sprockets CCOE",
+    "Principals":[
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketScienceUser"}
+      ]
 	},
 	{
     "ID":"ccoeitInfa",
 		"Name":"Sprocket CCOE IT Infra",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE"
+		"Provider":"Spacely Sprockets CCOE",
+    "Principals":[
+      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"}
+      ]
   }
 ],
   "Products" : [
@@ -54,7 +105,13 @@
         }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
+    ],
+    "TagOptions":[
+      {"ID":"DataHgh"},
+      {"ID":"DataMed"},
+      {"ID":"DataLow"}
+    ]
     },
     {
     "ID":"SprockLambdaPython",
@@ -207,8 +264,16 @@
       }],
     "Portfolios":[
       {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
-    ]
+      {"PortfolioID":"ec2Infa", "Constraints":[
+         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+         {"Type":"NotificationConstraint","Parameters":[
+            {"NotificationArn":"aws::SNS::Topic::ARN"},
+            {"NotificationArn":"aws::SNS::Topic::ARN2"}]},
+         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+         {"Type":"TemplateConstraint","Parameters":"{A sample template constraint rule}"}
+        ]
+       }
+      ]
     }
   ]
 }
