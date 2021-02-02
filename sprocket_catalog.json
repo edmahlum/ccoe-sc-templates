@@ -111,7 +111,9 @@
       {"ID":"DataHgh"},
       {"ID":"DataMed"},
       {"ID":"DataLow"}
-    ]
+    ],
+    "IAMLaunchPolicies":[
+      {"Name":"AmazonDynamoDBFullAccess"}]
     },
     {
     "ID":"SprockLambdaPython",
@@ -130,7 +132,9 @@
       }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockAPIGWLambda",
@@ -149,7 +153,9 @@
       }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockEMR",
@@ -169,7 +175,9 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
       {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockIAMRoleSagemaker",
@@ -188,7 +196,9 @@
       }],
     "Portfolios":[
       {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockLamp",
@@ -206,7 +216,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}]
+      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockRDS",
@@ -224,7 +236,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}]
+      {"PortfolioID":"ec2Infa","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockPrivateS3",
@@ -244,8 +258,9 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
       {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
-      ]
+      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+    "IAMLaunchPolicies":[
+      {"Name":"AWSLambda_FullAccess"}]
     },
     {
     "ID":"SprockSageMaker",
@@ -270,10 +285,9 @@
             {"NotificationArn":"aws::SNS::Topic::ARN"},
             {"NotificationArn":"aws::SNS::Topic::ARN2"}]},
          {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
-         {"Type":"TemplateConstraint","Parameters":"{A sample template constraint rule}"}
-        ]
-       }
-      ]
+         {"Type":"TemplateConstraint","Parameters":"{A sample template constraint rule}"}]}],
+       "IAMLaunchPolicies":[
+         {"Name":"AWSLambda_FullAccess"}]
     }
   ]
 }
