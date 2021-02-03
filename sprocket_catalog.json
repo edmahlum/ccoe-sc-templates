@@ -21,7 +21,7 @@
   ],
 	"Portfolios": [
   {
-    "ID":"serverlessInfa",
+    "ID":"serverlessInfra",
 		"Name":"Sprocket CCOE Serverless Infra",
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
@@ -41,7 +41,7 @@
     ]
 	},
 	{
-    "ID":"containersInfa",
+    "ID":"containersInfra",
 		"Name":"Sprocket CCOE Container Infra",
 		"Description":"Spacely Sprocket CCOE approved container infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
@@ -50,7 +50,7 @@
       ]
 	},
 	{
-    "ID":"ec2Infa",
+    "ID":"ec2Infra",
 		"Name":"Sprocket CCOE EC2 Infra",
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
@@ -59,7 +59,7 @@
       ]
 	},
 	{
-    "ID":"scienceInfa",
+    "ID":"scienceInfra",
 		"Name":"Sprocket CCOE Science Infra",
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
@@ -68,12 +68,12 @@
       ]
 	},
 	{
-    "ID":"ccoeitInfa",
+    "ID":"ccoeitInfra",
 		"Name":"Sprocket CCOE IT Infra",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Group":"ccoeitInfa"}
+      {"Group":"ccoeitInfra"}
       ]
   }
 ],
