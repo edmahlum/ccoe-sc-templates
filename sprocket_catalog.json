@@ -99,8 +99,8 @@
           "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
         }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
+      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
     ],
     "TagOptions":[
       {"ID":"DataHgh"},
@@ -126,8 +126,8 @@
         "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -147,8 +147,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -168,9 +168,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -190,8 +190,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-iam-role-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ccoeitInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -211,7 +211,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -231,7 +231,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -251,9 +251,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"serverlessInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -273,8 +273,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"scienceInfa", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ec2Infa", "Constraints":[
+      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"ec2Infra", "Constraints":[
          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
          {"Type":"NotificationConstraint","Parameters":[
             {"NotificationArn":"aws::SNS::Topic::ARN"},
