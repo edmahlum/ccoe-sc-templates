@@ -26,8 +26,7 @@
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketServerlessUser"}
+      {"Group":"serverlessInfra"}
     ],
     "TagOptions":[
       {"ID":"EnvDev"},
@@ -47,8 +46,7 @@
 		"Description":"Spacely Sprocket CCOE approved container infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketContainerUser"}
+      {"Group":"containersInfra"}
       ]
 	},
 	{
@@ -57,9 +55,7 @@
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketScienceUser"},
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketComputerUser"}
+      {"Group":"ec2Infra"}
       ]
 	},
 	{
@@ -68,8 +64,7 @@
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"},
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketScienceUser"}
+      {"Group":"scienceInfra"}
       ]
 	},
 	{
@@ -78,7 +73,7 @@
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
-      {"Role":"AWS::IAM::ROLE::0123456789123/role/SprocketAdmin"}
+      {"Role":"admin"}
       ]
   }
 ],
