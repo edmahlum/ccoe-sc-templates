@@ -99,8 +99,8 @@
           "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
         }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}
+      {"PortfolioID":"serverlessInfra"},
+      {"PortfolioID":"scienceInfra"}
     ],
     "TagOptions":[
       {"ID":"DataHgh"},
@@ -126,8 +126,8 @@
         "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"serverlessInfra"},
+      {"PortfolioID":"scienceInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -147,8 +147,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"serverlessInfra"},
+      {"PortfolioID":"ccoeitInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -168,9 +168,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra"},
+      {"PortfolioID":"scienceInfra"},
+      {"PortfolioID":"ccoeitInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -190,8 +190,8 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-iam-role-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ccoeitInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ccoeitInfra"},
+      {"PortfolioID":"scienceInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -211,7 +211,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"NOT_ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -231,7 +231,7 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra","Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -251,9 +251,9 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
-      {"PortfolioID":"serverlessInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]}],
+      {"PortfolioID":"ec2Infra"},
+      {"PortfolioID":"scienceInfra"},
+      {"PortfolioID":"serverlessInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
