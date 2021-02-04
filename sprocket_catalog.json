@@ -277,8 +277,8 @@
       {"PortfolioID":"ec2Infra", "Constraints":[
          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
          {"Type":"NotificationConstraint","Parameters":[
-            {"NotificationArn":"aws::SNS::Topic::ARN"},
-            {"NotificationArn":"aws::SNS::Topic::ARN2"}]},
+            {"NotificationArn":"ccoeitInfra"}]
+          },
          {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
          {"Type":"TemplateConstraint","Parameters":"{A sample template constraint rule}"}]}],
        "IAMLaunchPolicies":[
