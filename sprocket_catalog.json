@@ -25,6 +25,7 @@
 		"Name":"Sprocket CCOE Serverless Infra",
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
+    "Notifications":"2063996889",
     "Principals":[
       {"Group":"serverlessInfra"}
     ],
@@ -54,6 +55,7 @@
 		"Name":"Sprocket CCOE EC2 Infra",
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
+    "Notifications":"2063996889",
     "Principals":[
       {"Group":"ec2Infra"}
       ]
@@ -63,6 +65,7 @@
 		"Name":"Sprocket CCOE Science Infra",
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
+    "Notifications":"2063996889",
     "Principals":[
       {"Group":"scienceInfra"}
       ]
@@ -72,6 +75,7 @@
 		"Name":"Sprocket CCOE IT Infra",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
+    "Notifications":"2063996889",
     "Principals":[
       {"Group":"ccoeitInfra"}
       ]
@@ -168,7 +172,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra"},
+      {"PortfolioID":"ec2Infra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"},
       {"PortfolioID":"ccoeitInfra"}],
     "IAMLaunchPolicies":[
@@ -190,7 +198,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-iam-role-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ccoeitInfra"},
+      {"PortfolioID":"ccoeitInfra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
@@ -211,7 +223,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra"}],
+      {"PortfolioID":"ec2Infra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -231,7 +247,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra"}],
+      {"PortfolioID":"ec2Infra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -251,7 +271,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"ec2Infra"},
+      {"PortfolioID":"ec2Infra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"},
       {"PortfolioID":"serverlessInfra"}],
     "IAMLaunchPolicies":[
@@ -276,11 +300,9 @@
       {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
       {"PortfolioID":"ec2Infra", "Constraints":[
          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-         {"Type":"NotificationConstraint","Parameters":[
-            {"NotificationArn":"ccoeitInfra"}]
-          },
+         {"Type":"NotificationConstraint"},
          {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
-         {"Type":"TemplateConstraint","Parameters":"{A sample template constraint rule}"}]}],
+         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
        "IAMLaunchPolicies":[
          {"Name":"AWSLambda_FullAccess"}]
     }
