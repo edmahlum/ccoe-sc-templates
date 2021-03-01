@@ -1,0 +1,20 @@
+{
+  "AttributeGroups": [
+    {"Name":"Org_Science","Description":"Organization metadata for the Sprockets science team","Tags":{"Dept":"Dept10005"},"Attributes":
+    {"Department":"10005","Active":"1","ParentDept":"Research","ContactAlias":"science_team@spacely.com"}},
+    {"Name":"Org_Robotics","Description":"Organization metadata for the Sprockets robotics team","Tags":{"Dept":"Dept10006"},"Attributes":
+    {"Department":"10006","Active":"1","ParentDept":"Research","ContactAlias":"robotics_team@spacely.com"}},
+    {"Name":"Org_ColonyPlacement","Description":"Organization metadata for the Sprockets conoloy placement team","Tags":{"Dept":"Dept20002"},"Attributes":
+    {"Department":"20002","Active":"1","ParentDept":"Product","ContactAlias":"colony_placement_team@spacely.com"}},
+    {"Name":"Org_ColonyServices","Description":"Organization metadata for the Sprockets conoloy services team","Tags":{"Dept":"Dept20004"},"Attributes":
+    {"Department":"20004","Active":"1","ParentDept":"Product","ContactAlias":"colony_services_team@spacely.com"}},
+    {"Name":"Org_MarketingMicroSites","Description":"Organization metadata for the Sprockets marketing micro sites team for colonies","Tags":{"Dept":"Dept80008"},"Attributes":
+    {"Department":"80008","Active":"1","ParentDept":"Marketing","ContactAlias":"colony_services_team@spacely.com"}},
+    {"Name":"Org_MarketingCallCenter","Description":"Organization metadata for the Sprockets marketing call center team for colonies","Tags":{"Dept":"Dept80001"},"Attributes":
+    {"Department":"80001","Active":"1","ParentDept":"Marketing","ContactAlias":"colony_services_team@spacely.com"}},
+    {"Name":"Org_ColonyLogistics","Description":"Organization metadata for the Sprockets colony logistics team for colonies","Tags":{"Dept":"Dept10006"},"Attributes":
+    {"Department":"10006","Active":"1","ParentDept":"Corp","ContactAlias":"colony_services_team@spacely.com"}},
+    {"Name":"Org_IT","Description":"Organization metadata for the Sprockets IT team","Tags":{"Dept":"Dept10009"},"Attributes":
+    {"Department":"10009","Active":"1","ParentDept":"Corp","ContactAlias":"colony_services_team@spacely.com"}}
+  ]
+}
