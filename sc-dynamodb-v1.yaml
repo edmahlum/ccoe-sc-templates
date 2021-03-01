@@ -5,6 +5,8 @@ Parameters:
   TableName:
     Type: String
     Description: Provide the name of your DynamoDB table
+    MinLength: 3
+    MaxLength: 10
   IndexName:
     Type: String
     Description: Provide the name of the DynamoDB table index
