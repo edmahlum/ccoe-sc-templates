@@ -15,9 +15,9 @@
     {"ID":"EnvAlp","Key":"Environment","Value":"Alpha","Active":"True"},
     {"ID":"EnvBet","Key":"Environment","Value":"Beta","Active":"True"},
     {"ID":"EnvPrd","Key":"Environment","Value":"Production","Active":"True"},
-    {"ID":"DataHgh","Key":"DataClassification","Value":"High","Active":"True"},
-    {"ID":"DataMed","Key":"DataClassification","Value":"Medium","Active":"True"},
-    {"ID":"DataLow","Key":"DataClassification","Value":"Low","Active":"True"}
+    {"ID":"DataHgh","Key":"DataSecurityClassification","Value":"High","Active":"True"},
+    {"ID":"DataMed","Key":"DataSecurityClassification","Value":"Medium","Active":"True"},
+    {"ID":"DataLow","Key":"DataSecurityClassification","Value":"Low","Active":"True"}
   ],
 	"Portfolios": [
   {
@@ -113,8 +113,16 @@
           "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
         }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra"},
-      {"PortfolioID":"scienceInfra"}
+      {"PortfolioID":"serverlessInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}
     ],
     "TagOptions":[
       {"ID":"DataHgh"},
@@ -140,8 +148,16 @@
         "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra"},
-      {"PortfolioID":"scienceInfra"}],
+      {"PortfolioID":"serverlessInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -161,8 +177,16 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"serverlessInfra"},
-      {"PortfolioID":"ccoeitInfra"}],
+      {"PortfolioID":"serverlessInfra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockAPIGWLambdaLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
+      {"PortfolioID":"ccoeitInfra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockAPIGWLambdaLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -185,10 +209,18 @@
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
         {"Type":"NotificationConstraint"},
-        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
-      {"PortfolioID":"scienceInfra"},
-      {"PortfolioID":"ccoeitInfra"}],
+      {"PortfolioID":"scienceInfra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
+      {"PortfolioID":"ccoeitInfra","Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -236,7 +268,7 @@
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
         {"Type":"NotificationConstraint"},
-        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockLampLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
@@ -260,7 +292,7 @@
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
         {"Type":"NotificationConstraint"},
-        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockRDSLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
@@ -284,10 +316,18 @@
       {"PortfolioID":"ec2Infra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
         {"Type":"NotificationConstraint"},
-        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
-      {"PortfolioID":"scienceInfra"},
-      {"PortfolioID":"serverlessInfra"}],
+      {"PortfolioID":"scienceInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
+      {"PortfolioID":"serverlessInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -307,7 +347,11 @@
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
       }],
     "Portfolios":[
-      {"PortfolioID":"scienceInfra", "Constraints":[{"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"}]},
+      {"PortfolioID":"scienceInfra", "Constraints":[
+        {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+        {"Type":"NotificationConstraint"},
+        {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
+        {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"ec2Infra", "Constraints":[
          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
          {"Type":"NotificationConstraint"},
