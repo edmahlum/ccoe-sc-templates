@@ -47,7 +47,7 @@ Resources:
             Statement:
               - Effect: 'Allow'
                 Action: 'lambda:*'
-                Resource: !Ref 'LambdaARN'
+                Resource: !Ref 'LambdaArn'
 
   apiGatewayEndpointDeployment:
     Type: AWS::ApiGateway::Deployment
