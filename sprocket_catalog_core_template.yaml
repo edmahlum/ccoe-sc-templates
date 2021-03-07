@@ -149,17 +149,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -183,17 +188,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -217,17 +227,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -251,17 +266,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -285,17 +305,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -319,17 +344,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -353,17 +383,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -387,17 +422,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -421,17 +461,22 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+              - :iam::aws:policy/AWSCloudFormationFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
         - Fn::Join:
             - ""
             - - "arn:"
@@ -580,13 +625,13 @@ Outputs:
         - Arn
     Export:
       Name: IAMGroupccoeitInfra
-  CFNOutputCCOENotify:
+  SNSTopicArnCCOENotify:
     Description: The ARN of the SNS Topic SpacelyNotificationTopic_CCOENotify
     Value:
       Ref: SNSTopicCCOENotify
     Export:
       Name: CCOENotify
-  CFNOutputDataNotify:
+  SNSTopicArnDataNotify:
     Description: The ARN of the SNS Topic SpacelyNotificationTopic_DataNotify
     Value:
       Ref: SNSTopicDataNotify

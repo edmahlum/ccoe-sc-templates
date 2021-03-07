@@ -21,7 +21,7 @@
   ],
     "Notifications": [
       {"Topic": "CCOENotify","EndPointProtocol": "email","EndPoint": "aws242-pm@amazon.com"},
-      {"Topic": "DataNotify","EndPointProtocol": "sms","EndPoint": "2063996889"}
+      {"Topic": "DataNotify","EndPointProtocol": "sms","EndPoint": "12063996889"}
   ],
 	"Portfolios": [
   {
