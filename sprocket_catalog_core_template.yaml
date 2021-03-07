@@ -1,0 +1,660 @@
+Resources:
+  SprocketAttributeGroupScienceOrg:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Science_Org
+      Description: Organization metadata for the Sprockets science team
+      Tags:
+        Dept: Dept10005
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupScience_Org
+  SprocketAttributeGroupRoboticsOrg:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Robotics_Org
+      Description: Organization metadata for the Sprockets robotics team
+      Tags:
+        Dept: Dept10006
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupRobotics_Org
+  SprocketAttributeGroupOrgColonyPlacement:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Org_ColonyPlacement
+      Description: Organization metadata for the Sprockets conoloy placement team
+      Tags:
+        Dept: Dept20002
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyPlacement
+  SprocketAttributeGroupOrgColonyServices:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Org_ColonyServices
+      Description: Organization metadata for the Sprockets conoloy services team
+      Tags:
+        Dept: Dept20004
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyServices
+  SprocketAttributeGroupMarketingMicroSites:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: MarketingMicroSites
+      Description: Organization metadata for the Sprockets marketing micro sites team for colonies
+      Tags:
+        Dept: Dept80008
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupMarketingMicroSites
+  SprocketAttributeGroupOrgMarketingCallCenter:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Org_MarketingCallCenter
+      Description: Organization metadata for the Sprockets marketing call center team for colonies
+      Tags:
+        Dept: Dept80001
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_MarketingCallCenter
+  SprocketAttributeGroupOrgColonyLogistics:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: Org_ColonyLogistics
+      Description: Organization metadata for the Sprockets colony logistics team for colonies
+      Tags:
+        Dept: Dept10006
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyLogistics
+  SprocketAttributeGroupITOrg:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: IT_Org
+      Description: Organization metadata for the Sprockets IT team
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupIT_Org
+  SprocketAttributeGroupITInfraApplication:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: ITInfraApplication
+      Description: Application metadata for the Sprockets IT Apps
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupITInfraApplication
+  SprocketAttributeGroupAnalyticsApplication:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: AnalyticsApplication
+      Description: Application metadata for the Sprockets Analytics Apps
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupAnalyticsApplication
+  SprocketAttributeGroupITBudget:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: ITBudget
+      Description: Application metadata for IT Budget Attribution
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupITBudget
+  SprocketCoreBuilderApplication:
+    Type: AWS::ServiceCatalogAppRegistry::Application
+    Properties:
+      Name: SprocketCoreBuilder
+      Description: A cdk application that the required SNS topics, IAM roles, and IAM groups needed for the Spacely Sprocket Service Catalog based on a JSON input file.
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketCoreBuilderApplication
+  SprocketStackAppAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
+    Properties:
+      Application:
+        Ref: SprocketCoreBuilderApplication
+      Resource:
+        Ref: AWS::StackId
+      ResourceType: CFN_STACK
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketStackAppAssociation
+  SprocketOrgAttributeAppAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
+    Properties:
+      Application:
+        Ref: SprocketCoreBuilderApplication
+      AttributeGroup: Org_IT
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketOrgAttributeAppAssociation
+  SprockDynamolaunchrole63FA9D5F:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonDynamoDBFullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockDynamo
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockDynamolaunch_role/Resource
+  SprockLambdaPythonlaunchrole01ED0BBC:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockLambdaPython
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockLambdaPythonlaunch_role/Resource
+  SprockAPIGWLambdalaunchroleE8D2A9AB:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockAPIGWLambda
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockAPIGWLambdalaunch_role/Resource
+  SprockEMRlaunchrole2DD454A9:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockEMR
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockEMRlaunch_role/Resource
+  SprockIAMRoleSagemakerlaunchroleCBA29B4D:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockIAMRoleSagemaker
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockIAMRoleSagemakerlaunch_role/Resource
+  SprockLamplaunchroleDF6DE43A:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockLamp
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockLamplaunch_role/Resource
+  SprockRDSlaunchroleF5DE5FEA:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockRDS
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockRDSlaunch_role/Resource
+  SprockPrivateS3launchroleC9B42EA4:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockPrivateS3
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockPrivateS3launch_role/Resource
+  SprockSageMakerlaunchrole8A7CDC62:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationReadOnlyAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSLambda_FullAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockSageMaker
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockSageMakerlaunch_role/Resource
+  serverlessInfraiamgroupBF02BD47:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: SpacelySprocketsCatalogIAMGroup_serverlessInfra
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/serverlessInfraiam_group/Resource
+  containersInfraiamgroupE62103DD:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: SpacelySprocketsCatalogIAMGroup_containersInfra
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/containersInfraiam_group/Resource
+  ec2Infraiamgroup5D9C1221:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: SpacelySprocketsCatalogIAMGroup_ec2Infra
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ec2Infraiam_group/Resource
+  scienceInfraiamgroup888C9E7B:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: SpacelySprocketsCatalogIAMGroup_scienceInfra
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/scienceInfraiam_group/Resource
+  ccoeitInfraiamgroup6E6EFB79:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: SpacelySprocketsCatalogIAMGroup_ccoeitInfra
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ccoeitInfraiam_group/Resource
+  SNSTopicCCOENotify:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: SpacelyNotificationTopic_CCOENotify
+      TopicName: CCOENotify
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SNSTopicCCOENotify
+  SNSSubscriptionCCOENotify:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Protocol: email
+      TopicArn:
+        Ref: SNSTopicCCOENotify
+      Endpoint: aws242-pm@amazon.com
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SNSSubscriptionCCOENotify
+  SNSTopicDataNotify:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: SpacelyNotificationTopic_DataNotify
+      TopicName: DataNotify
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SNSTopicDataNotify
+  SNSSubscriptionDataNotify:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Protocol: sms
+      TopicArn:
+        Ref: SNSTopicDataNotify
+      Endpoint: "2063996889"
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SNSSubscriptionDataNotify
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Modules: aws-cdk=1.89.0,@aws-cdk/aws-cloudwatch=1.87.1,@aws-cdk/aws-events=1.87.1,@aws-cdk/aws-iam=1.87.1,@aws-cdk/aws-kms=1.87.1,@aws-cdk/aws-servicecatalogappregistry=1.91.0,@aws-cdk/aws-sns=1.87.1,@aws-cdk/aws-sqs=1.87.1,@aws-cdk/cloud-assembly-schema=1.91.0,@aws-cdk/core=1.91.0,@aws-cdk/cx-api=1.91.0,@aws-cdk/region-info=1.91.0,jsii-runtime=Python/3.7.7
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/CDKMetadata/Default
+    Condition: CDKMetadataAvailable
+Outputs:
+  IAMGroupserverlessInfra:
+    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_serverlessInfra
+    Value:
+      Fn::GetAtt:
+        - serverlessInfraiamgroupBF02BD47
+        - Arn
+    Export:
+      Name: IAMGroupserverlessInfra
+  IAMGroupcontainersInfra:
+    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_containersInfra
+    Value:
+      Fn::GetAtt:
+        - containersInfraiamgroupE62103DD
+        - Arn
+    Export:
+      Name: IAMGroupcontainersInfra
+  IAMGroupec2Infra:
+    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_ec2Infra
+    Value:
+      Fn::GetAtt:
+        - ec2Infraiamgroup5D9C1221
+        - Arn
+    Export:
+      Name: IAMGroupec2Infra
+  IAMGroupscienceInfra:
+    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_scienceInfra
+    Value:
+      Fn::GetAtt:
+        - scienceInfraiamgroup888C9E7B
+        - Arn
+    Export:
+      Name: IAMGroupscienceInfra
+  IAMGroupccoeitInfra:
+    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_ccoeitInfra
+    Value:
+      Fn::GetAtt:
+        - ccoeitInfraiamgroup6E6EFB79
+        - Arn
+    Export:
+      Name: IAMGroupccoeitInfra
+  CFNOutputCCOENotify:
+    Description: The ARN of the SNS Topic SpacelyNotificationTopic_CCOENotify
+    Value:
+      Ref: SNSTopicCCOENotify
+    Export:
+      Name: CCOENotify
+  CFNOutputDataNotify:
+    Description: The ARN of the SNS Topic SpacelyNotificationTopic_DataNotify
+    Value:
+      Ref: SNSTopicDataNotify
+    Export:
+      Name: DataNotify
+Conditions:
+  CDKMetadataAvailable:
+    Fn::Or:
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ca-central-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-northwest-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-central-1
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-3
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - me-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - sa-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-2
+
