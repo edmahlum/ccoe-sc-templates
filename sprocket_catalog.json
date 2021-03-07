@@ -19,13 +19,16 @@
     {"ID":"DataMed","Key":"DataSecurityClassification","Value":"Medium","Active":"True"},
     {"ID":"DataLow","Key":"DataSecurityClassification","Value":"Low","Active":"True"}
   ],
+    "Notifications": [
+      {"Topic": "CCOE_Notify","EndPointProtocol": "email","EndPoint": "aws242-pm@amazon.com"},
+      {"Topic": "Data_Notify","EndPointProtocol": "sms","EndPoint": "2063996889"}
+  ],
 	"Portfolios": [
   {
     "ID":"serverlessInfra",
 		"Name":"Sprocket CCOE Serverless Infra",
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
-    "Notifications":"2063996889",
     "Principals":[
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_serverlessInfra"},
       {"ARN":"group/Admin-Users"},
@@ -70,7 +73,6 @@
 		"Name":"Sprocket CCOE EC2 Infra",
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
-    "Notifications":"2063996889",
     "Principals":[
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_ec2Infra"},
       {"ARN":"group/Admin-Users"},
@@ -93,7 +95,6 @@
 		"Name":"Sprocket CCOE Science Infra",
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
-    "Notifications":"2063996889",
     "Principals":[
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_scienceInfra"},
       {"ARN":"group/Admin-Users"},
@@ -116,7 +117,6 @@
 		"Name":"Sprocket CCOE IT Infra",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
-    "Notifications":"2063996889",
     "Principals":[
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_ccoeitInfra"},
       {"ARN":"group/Admin-Users"},
@@ -159,12 +159,16 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"},
+          {
+          "Topic": "Data_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}
     ],
@@ -199,12 +203,14 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}],
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -238,7 +244,8 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockAPIGWLambdaLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"ccoeitInfra","Constraints":[
@@ -277,17 +284,20 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"ccoeitInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -321,7 +331,8 @@
     "Portfolios":[
       {"PortfolioID":"ccoeitInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"}],
@@ -356,7 +367,8 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLampLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -390,7 +402,8 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockRDSLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -424,17 +437,20 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -468,12 +484,14 @@
     "Portfolios":[
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint"},
+        {"Type":"NotificationConstraint","Parameters": [{
+          "Topic": "CCOE_Notify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"ec2Infra", "Constraints":[
          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-         {"Type":"NotificationConstraint"},
+         {"Type":"NotificationConstraint","Parameters": [{
+           "Topic": "CCOE_Notify"}]},
          {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
          {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
