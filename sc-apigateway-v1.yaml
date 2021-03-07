@@ -4,9 +4,6 @@ Parameters:
   APIGatewayName:
     Type: String
     Description: Provide the name of your API Gateway
-  LambdaURI:
-    Type: String
-    Description: The URI of the Lambda function
   LambdaARN:
     Type: String
     Description: The ARN of the Lambda function
@@ -25,7 +22,7 @@ Resources:
       Integration:
         IntegrationHttpMethod: "POST"
         Type: "AWS_PROXY"
-        Uri: !Ref 'LambdaURI'
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${myLambdaArn}/invocations'
       ResourceId: !GetAtt "apiGateway.RootResourceId"
       RestApiId: !Ref "apiGateway"
 
