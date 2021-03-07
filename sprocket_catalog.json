@@ -52,6 +52,17 @@
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_containersInfra"},
       {"ARN":"group/Admin-Users"},
       {"ARN":"role/admin"}
+      ],
+      "TagOptions":[
+        {"ID":"EnvDev"},
+        {"ID":"EnvStg"},
+        {"ID":"EnvTst"},
+        {"ID":"EnvAlp"},
+        {"ID":"EnvBet"},
+        {"ID":"EnvPrd"},
+        {"ID":"DataHgh"},
+        {"ID":"DataMed"},
+        {"ID":"DataLow"}
       ]
 	},
 	{
@@ -64,6 +75,17 @@
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_ec2Infra"},
       {"ARN":"group/Admin-Users"},
       {"ARN":"role/admin"}
+      ],
+      "TagOptions":[
+        {"ID":"EnvDev"},
+        {"ID":"EnvStg"},
+        {"ID":"EnvTst"},
+        {"ID":"EnvAlp"},
+        {"ID":"EnvBet"},
+        {"ID":"EnvPrd"},
+        {"ID":"DataHgh"},
+        {"ID":"DataMed"},
+        {"ID":"DataLow"}
       ]
 	},
 	{
@@ -76,6 +98,17 @@
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_scienceInfra"},
       {"ARN":"group/Admin-Users"},
       {"ARN":"role/admin"}
+      ],
+      "TagOptions":[
+        {"ID":"EnvDev"},
+        {"ID":"EnvStg"},
+        {"ID":"EnvTst"},
+        {"ID":"EnvAlp"},
+        {"ID":"EnvBet"},
+        {"ID":"EnvPrd"},
+        {"ID":"DataHgh"},
+        {"ID":"DataMed"},
+        {"ID":"DataLow"}
       ]
 	},
 	{
@@ -88,6 +121,17 @@
       {"ARN":"group/SpacelySprocketsCatalogIAMGroup_ccoeitInfra"},
       {"ARN":"group/Admin-Users"},
       {"ARN":"role/admin"}
+      ],
+      "TagOptions":[
+        {"ID":"EnvDev"},
+        {"ID":"EnvStg"},
+        {"ID":"EnvTst"},
+        {"ID":"EnvAlp"},
+        {"ID":"EnvBet"},
+        {"ID":"EnvPrd"},
+        {"ID":"DataHgh"},
+        {"ID":"DataMed"},
+        {"ID":"DataLow"}
       ]
   }
 ],
@@ -125,9 +169,14 @@
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}
     ],
     "TagOptions":[
-      {"ID":"DataHgh"},
-      {"ID":"DataMed"},
-      {"ID":"DataLow"}
+      {"ID":"Dept10005"},
+      {"ID":"Dept10007"},
+      {"ID":"Dept10008"},
+      {"ID":"Dept10200"},
+      {"ID":"Dept10201"},
+      {"ID":"Dept10202"},
+      {"ID":"Dept10501"},
+      {"ID":"Dept10700"}
     ],
     "IAMLaunchPolicies":[
       {"Name":"AmazonDynamoDBFullAccess"}]
@@ -158,6 +207,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -187,6 +246,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockAPIGWLambdaLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -221,6 +290,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -246,6 +325,16 @@
         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -270,6 +359,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLampLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -294,6 +393,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockRDSLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -328,6 +437,16 @@
         {"Type":"NotificationConstraint"},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"}]
     },
@@ -357,6 +476,16 @@
          {"Type":"NotificationConstraint"},
          {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
          {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+      ],
        "IAMLaunchPolicies":[
          {"Name":"AWSLambda_FullAccess"}]
     }
