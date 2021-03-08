@@ -209,6 +209,11 @@ Resources:
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AWSLambda_FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/IAMFullAccess
       RoleName: SpacelySprocketsCatalogLaunchRole_SprockLambdaPython
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprockLambdaPythonlaunch_role/Resource
@@ -574,7 +579,7 @@ Resources:
       Protocol: sms
       TopicArn:
         Ref: SNSTopicDataNotify
-      Endpoint: "2063996889"
+      Endpoint: "12063996889"
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SNSSubscriptionDataNotify
   CDKMetadata:
