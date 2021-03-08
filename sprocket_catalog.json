@@ -222,7 +222,8 @@
         {"ID":"Dept10700"}
       ],
     "IAMLaunchPolicies":[
-      {"Name":"AWSLambda_FullAccess"}]
+      {"Name":"AWSLambda_FullAccess"},
+      {"Name":"IAMFullAccess"}]
     },
     {
     "ID":"SprockAPIGWLambda",
