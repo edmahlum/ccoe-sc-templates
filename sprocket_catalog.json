@@ -159,8 +159,9 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "DataNotify"}]},
+        {"Type":"NotificationConstraint","Parameters": [
+          {"Topic": "DataNotify"},
+          {"Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra", "Constraints":[
