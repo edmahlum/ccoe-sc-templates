@@ -20,7 +20,7 @@
     {"ID":"DataLow","Key":"DataSecurityClassification","Value":"Low","Active":"True"}
   ],
     "Notifications": [
-      {"Topic": "CCOENotify","EndPointProtocol": "email","EndPoint": "aws242-pm@amazon.com"},
+      {"Topic": "CCOENotify","EndPointProtocol": "email","EndPoint": "aws-sc-test@amazon.com"},
       {"Topic": "DataNotify","EndPointProtocol": "sms","EndPoint": "12063996889"}
   ],
 	"Portfolios": [
