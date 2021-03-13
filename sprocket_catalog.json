@@ -44,6 +44,9 @@
       {"ID":"DataHgh"},
       {"ID":"DataMed"},
       {"ID":"DataLow"}
+    ],
+    "Shares": [
+      {"Accounts": "ccoe_share","ShareTags": "True"}
     ]
 	},
 	{
