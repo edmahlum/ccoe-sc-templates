@@ -386,7 +386,7 @@
         {"ID":"Dept10700"}
       ],
     "IAMLaunchPolicies":[
-      {"Name":"AWSLambda_FullAccess"}]
+      {"Name":"AmazonEC2FullAccess"}]
     },
     {
     "ID":"SprockRDS",
