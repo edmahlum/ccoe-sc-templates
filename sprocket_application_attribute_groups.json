@@ -119,7 +119,7 @@
           "Sunday":"$1.20"}
        }
       },
-    { "Name":"MarketingAnalysisApplicationAttributes",
+    { "Name":"MarketingAnalysisApplication",
       "Description":"The attributes that describes the marketing analysis application",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
@@ -141,7 +141,7 @@
           "EscalationPhone": "515-555-1212"}
         }
     },
-    { "Name":"MarketingAnalysisApplicationAttributes",
+    { "Name":"MarketingAnalysisApplicationComponents",
       "Description":"MarketingAnalysisApplicationAttributes",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
