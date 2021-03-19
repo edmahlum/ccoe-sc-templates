@@ -392,7 +392,8 @@
         {"ID":"Dept10700"}
       ],
     "IAMLaunchPolicies":[
-      {"Name":"AmazonEC2FullAccess"}]
+      {"Name": "AmazonEC2FullAccess"},
+      {"Name": "AWS_ConfigRole"}]
     },
     {
     "ID":"SprockRDS",
