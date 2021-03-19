@@ -393,7 +393,7 @@
       ],
     "IAMLaunchPolicies":[
       {"Name": "AmazonEC2FullAccess"},
-      {"Name": "AWS_ConfigRole"}]
+      {"Name": "ConfigAccessPolicy"}]
     },
     {
     "ID":"SprockRDS",

@@ -19,56 +19,56 @@ Resources:
         Dept: Dept10006
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupRobotics_Org
-  SprocketAttributeGroupOrgColonyPlacement:
+  SprocketAttributeGroupColonyPlacementOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes: {}
-      Name: Org_ColonyPlacement
+      Name: ColonyPlacement_Org
       Description: Organization metadata for the Sprockets conoloy placement team
       Tags:
         Dept: Dept20002
     Metadata:
-      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyPlacement
-  SprocketAttributeGroupOrgColonyServices:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupColonyPlacement_Org
+  SprocketAttributeGroupColonyServicesOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes: {}
-      Name: Org_ColonyServices
+      Name: ColonyServices_Org
       Description: Organization metadata for the Sprockets conoloy services team
       Tags:
         Dept: Dept20004
     Metadata:
-      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyServices
-  SprocketAttributeGroupMarketingMicroSites:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupColonyServices_Org
+  SprocketAttributeGroupMarketingOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes: {}
-      Name: MarketingMicroSites
+      Name: Marketing_Org
       Description: Organization metadata for the Sprockets marketing micro sites team for colonies
       Tags:
         Dept: Dept80008
     Metadata:
-      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupMarketingMicroSites
-  SprocketAttributeGroupOrgMarketingCallCenter:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupMarketing_Org
+  SprocketAttributeGroupCallCenterOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes: {}
-      Name: Org_MarketingCallCenter
+      Name: CallCenter_Org
       Description: Organization metadata for the Sprockets marketing call center team for colonies
       Tags:
         Dept: Dept80001
     Metadata:
-      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_MarketingCallCenter
-  SprocketAttributeGroupOrgColonyLogistics:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupCallCenter_Org
+  SprocketAttributeGroupColonyLogisticsOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes: {}
-      Name: Org_ColonyLogistics
+      Name: ColonyLogistics_Org
       Description: Organization metadata for the Sprockets colony logistics team for colonies
       Tags:
         Dept: Dept10006
     Metadata:
-      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupOrg_ColonyLogistics
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupColonyLogistics_Org
   SprocketAttributeGroupITOrg:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
@@ -109,6 +109,36 @@ Resources:
         Dept: Dept10009
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupITBudget
+  SprocketAttributeGroupPartnerBudget:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: PartnerBudget
+      Description: An attribute group that describes the budget for a particular application
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupPartnerBudget
+  SprocketAttributeGroupMarketingAnalysisApplication:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: MarketingAnalysisApplication
+      Description: The attributes that describes the marketing analysis application
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupMarketingAnalysisApplication
+  SprocketAttributeGroupMarketingAnalysisApplicationComponents:
+    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
+    Properties:
+      Attributes: {}
+      Name: MarketingAnalysisApplicationComponents
+      Description: MarketingAnalysisApplicationAttributes
+      Tags:
+        Dept: Dept10009
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprocketAttributeGroupMarketingAnalysisApplicationComponents
   SprocketCoreBuilderApplication:
     Type: AWS::ServiceCatalogAppRegistry::Application
     Properties:
@@ -131,7 +161,7 @@ Resources:
     Properties:
       Application:
         Ref: SprocketCoreBuilderApplication
-      AttributeGroup: Org_IT
+      AttributeGroup: IT_Org
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprocketOrgAttributeAppAssociation
   SprockDynamolaunchrole63FA9D5F:
@@ -369,7 +399,12 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSLambda_FullAccess
+              - :iam::aws:policy/AmazonEC2FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWS_ConfigRole
       RoleName: SpacelySprocketsCatalogLaunchRole_SprockLamp
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprockLamplaunch_role/Resource
@@ -563,7 +598,7 @@ Resources:
       Protocol: email
       TopicArn:
         Ref: SNSTopicCCOENotify
-      Endpoint: aws242-pm@amazon.com
+      Endpoint: aws-sc-test@amazon.com
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SNSSubscriptionCCOENotify
   SNSTopicDataNotify:
@@ -582,10 +617,39 @@ Resources:
       Endpoint: "12063996889"
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SNSSubscriptionDataNotify
+  IAMConfigServiceRoleC954B3B2:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: config.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSConfigRole
+      RoleName: SpacelySprocketsConfigRole
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/IAMConfigServiceRole/Resource
+  ConfigRecorder:
+    Type: AWS::Config::ConfigurationRecorder
+    Properties:
+      RoleARN:
+        Fn::GetAtt:
+          - IAMConfigServiceRoleC954B3B2
+          - Arn
+      Name: Spacely Sprocket Configuration Role ARN
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ConfigRecorder
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Modules: aws-cdk=1.89.0,@aws-cdk/aws-cloudwatch=1.87.1,@aws-cdk/aws-events=1.87.1,@aws-cdk/aws-iam=1.87.1,@aws-cdk/aws-kms=1.87.1,@aws-cdk/aws-servicecatalogappregistry=1.91.0,@aws-cdk/aws-sns=1.87.1,@aws-cdk/aws-sqs=1.87.1,@aws-cdk/cloud-assembly-schema=1.91.0,@aws-cdk/core=1.91.0,@aws-cdk/cx-api=1.91.0,@aws-cdk/region-info=1.91.0,jsii-runtime=Python/3.7.7
+      Analytics: v2:deflate64:H4sIAAAAAAAAE1VP0W7CMAz8Ft6LWbVJiLdVPOyRqewHghs6jxJHjrMJRf33JanE2NOd7+TzuYW0e4F29Wp+whqHyyYhi4V0VIOXZn92h6g+arNnF1QiatF6GzgK2sKzMZASu7kpEYnMFVLPUzUrvglHX6ZK5ia4ACmPH+wJi36Mp4BCfklBdmcaYYnOLIopRm9zscHKPDe7Fp7+ChcMVr4JLRo1E4/Ge7Ej5b63eqhTFTpFtfcmnfcTYc19/KcLgZHu8v+9BzN3eL/pJ7vNM2xhu/oKRGuJTulqoV/wF934Y2NZAQAA
     Metadata:
       aws:cdk:path: sprockets-catalog-core/CDKMetadata/Default
     Condition: CDKMetadataAvailable
@@ -648,6 +712,9 @@ Conditions:
       - Fn::Or:
           - Fn::Equals:
               - Ref: AWS::Region
+              - af-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
               - ap-east-1
           - Fn::Equals:
               - Ref: AWS::Region
@@ -673,13 +740,16 @@ Conditions:
           - Fn::Equals:
               - Ref: AWS::Region
               - cn-northwest-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-central-1
       - Fn::Or:
           - Fn::Equals:
               - Ref: AWS::Region
+              - eu-central-1
+          - Fn::Equals:
+              - Ref: AWS::Region
               - eu-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-south-1
           - Fn::Equals:
               - Ref: AWS::Region
               - eu-west-1
@@ -701,6 +771,7 @@ Conditions:
           - Fn::Equals:
               - Ref: AWS::Region
               - us-east-2
+      - Fn::Or:
           - Fn::Equals:
               - Ref: AWS::Region
               - us-west-1
