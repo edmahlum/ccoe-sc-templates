@@ -366,8 +366,14 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml"
-      }],
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/a593cd2c66bbf9ce2a184b35a878eac92e57c879/sc-lamp-v1.yaml"
+      },
+      {
+        "VersionName":"1.1",
+        "VersionDescription":"Recommended: Includes config rules to check no public IPs, monitoring, and ensure instance is not stopped.",
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/1f5b12c048b419c6cadfb3caaf82243eb2a4be3e/sc-lamp-v1.yaml"
+      }
+    ],
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
