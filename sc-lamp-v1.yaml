@@ -145,7 +145,7 @@ Resources:
   AWSConfigRuleEC2StoppedInstance:
     Type: AWS::Config::ConfigRule
     Properties:
-      ConfigRuleName: ec2-instance-detailed-monitoring-enabled
+      ConfigRuleName: ec2-stopped-instance-monitoring-enabled
       Description: Checks if there are instances stopped for more than
         the allowed number of days. The instance is NON_COMPLIANT if the
         state of the ec2 instance has been stopped for longer than

@@ -20,7 +20,8 @@ Resources:
   AttributeGroupCDKCloudAssembly:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
-cd      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
+      Attributes: {}
+      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
       Description: The CDK CloudAssembly for the aplication
     Metadata:
       aws:cdk:path: sprockets-catalog-builder/AttributeGroupCDKCloudAssembly
@@ -296,6 +297,15 @@ cd      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
         Ref: TagOptionDataLow
     Metadata:
       aws:cdk:path: sprockets-catalog-builder/PortfolioTagOptionAssociation_serverlessInfraDataLow
+  PortfolioShareserverlessInfra313313563731:
+    Type: AWS::ServiceCatalog::PortfolioShare
+    Properties:
+      AccountId: "313313563731"
+      PortfolioId:
+        Ref: PortfolioserverlessInfra
+      ShareTagOptions: true
+    Metadata:
+      aws:cdk:path: sprockets-catalog-builder/PortfolioShare_serverlessInfra313313563731
   PortfoliocontainersInfra:
     Type: AWS::ServiceCatalog::Portfolio
     Properties:
@@ -965,11 +975,12 @@ cd      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
     Properties:
       NotificationArns:
         - "[[servicecatalog:provisionedproduct:sprocket_catalog_core:SNSTopicArnDataNotify]]"
+        - "[[servicecatalog:provisionedproduct:sprocket_catalog_core:SNSTopicArnCCOENotify]]"
       PortfolioId:
         Ref: PortfolioserverlessInfra
       ProductId:
         Ref: ProductSprockDynamo
-      Description: The SNS topic [DataNotify] will receive notifications for all launch, update, and termination actions for the product.
+      Description: The SNS topic [DataNotify, CCOENotify] will receive notifications for all launch, update, and termination actions for the product.
     DependsOn:
       - ProductPortfolioAssociationSprockDynamoserverlessInfra
     Metadata:
@@ -1805,8 +1816,12 @@ cd      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
       ProvisioningArtifactParameters:
         - Description: Initial version
           Info:
-            LoadTemplateFromURL: https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lamp-v1.yaml
+            LoadTemplateFromURL: https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/a593cd2c66bbf9ce2a184b35a878eac92e57c879/sc-lamp-v1.yaml
           Name: "1.0"
+        - Description: "Recommended: Includes config rules to check no public IPs, monitoring, and ensure instance is not stopped."
+          Info:
+            LoadTemplateFromURL: https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/1f5b12c048b419c6cadfb3caaf82243eb2a4be3e/sc-lamp-v1.yaml
+          Name: "1.1"
       Description: The Sprocket Lamp Server is CCOE approved for security and compliance requirements. Create a LAMP stack using a single EC2 instance and a local MySQL database for storage. This installs the packages and files necessary to deploy the Apache web server, PHP, and MySQL.
       Distributor: Spacely Sprockets CCOE
       ReplaceProvisioningArtifacts: true
@@ -2503,7 +2518,7 @@ cd      Name: Application_SprocketCatalogBuilderCDKCloudAssembly
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Modules: aws-cdk=1.89.0,@aws-cdk/aws-servicecatalog=1.86.0,@aws-cdk/aws-servicecatalogappregistry=1.91.0,@aws-cdk/cloud-assembly-schema=1.91.0,@aws-cdk/core=1.91.0,@aws-cdk/cx-api=1.91.0,@aws-cdk/region-info=1.91.0,jsii-runtime=Python/3.7.7
+      Modules: aws-cdk=1.94.1,@aws-cdk/aws-servicecatalog=1.86.0,@aws-cdk/aws-servicecatalogappregistry=1.91.0,@aws-cdk/cloud-assembly-schema=1.91.0,@aws-cdk/core=1.91.0,@aws-cdk/cx-api=1.91.0,@aws-cdk/region-info=1.91.0,jsii-runtime=Python/3.7.7
     Metadata:
       aws:cdk:path: sprockets-catalog-builder/CDKMetadata/Default
     Condition: CDKMetadataAvailable

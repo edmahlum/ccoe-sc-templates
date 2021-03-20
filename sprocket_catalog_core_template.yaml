@@ -404,7 +404,7 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWS_ConfigRole
+              - :iam::aws:policy/service-role/AWSConfigRole
       RoleName: SpacelySprocketsCatalogLaunchRole_SprockLamp
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprockLamplaunch_role/Resource
@@ -632,7 +632,7 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AWSConfigRole
+              - :iam::aws:policy/service-role/AWSConfigRole
       RoleName: SpacelySprocketsConfigRole
     Metadata:
       aws:cdk:path: sprockets-catalog-core/IAMConfigServiceRole/Resource
@@ -643,13 +643,64 @@ Resources:
         Fn::GetAtt:
           - IAMConfigServiceRoleC954B3B2
           - Arn
-      Name: Spacely Sprocket Configuration Role ARN
+      Name: SpacelySprocketConfigRecorder
     Metadata:
       aws:cdk:path: sprockets-catalog-core/ConfigRecorder
+  ConfigBucket2112C5EC:
+    Type: AWS::S3::Bucket
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ConfigBucket/Resource
+  ConfigBucketPolicy6D5E90FF:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: ConfigBucket2112C5EC
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObjectAcl
+            Effect: Allow
+            Principal:
+              AWS:
+                Fn::GetAtt:
+                  - IAMConfigServiceRoleC954B3B2
+                  - Arn
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - ConfigBucket2112C5EC
+                      - Arn
+                  - /*
+          - Action: s3:PutObject
+            Effect: Allow
+            Principal:
+              AWS:
+                Fn::GetAtt:
+                  - IAMConfigServiceRoleC954B3B2
+                  - Arn
+            Resource:
+              Fn::Join:
+                - ""
+                - - Fn::GetAtt:
+                      - ConfigBucket2112C5EC
+                      - Arn
+                  - /*
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ConfigBucket/Policy/Resource
+  ConfigDeliveryChannel:
+    Type: AWS::Config::DeliveryChannel
+    Properties:
+      S3BucketName:
+        Ref: ConfigBucket2112C5EC
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/ConfigDeliveryChannel
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAAE1VP0W7CMAz8Ft6LWbVJiLdVPOyRqewHghs6jxJHjrMJRf33JanE2NOd7+TzuYW0e4F29Wp+whqHyyYhi4V0VIOXZn92h6g+arNnF1QiatF6GzgK2sKzMZASu7kpEYnMFVLPUzUrvglHX6ZK5ia4ACmPH+wJi36Mp4BCfklBdmcaYYnOLIopRm9zscHKPDe7Fp7+ChcMVr4JLRo1E4/Ge7Ej5b63eqhTFTpFtfcmnfcTYc19/KcLgZHu8v+9BzN3eL/pJ7vNM2xhu/oKRGuJTulqoV/wF934Y2NZAQAA
+      Analytics: v2:deflate64:H4sIAAAAAAAAE1VQ0W7CMAz8Ft5LWMUkxNu6TtrjUNkPBGPAUOIocZiqqP++JJ2APd35Lj6dU6u4flX17E3/+DnsL4sI7FDFrWi4VO3BfAWxQaqWjRcXQLLWoefgADNPxp6E2IxVjoikryp23Bez4KfjYPNUyFh541VM4zdbgqxvw86DIzulAJsDHcuLttDgdHY6TM326PLGB/Z0Qze0J20M9ilzqeJ7gAuWfn9sgg33BMNDnuZxHKt1rV4eh2f06G4ECFp0z0dtrcMjpbuHUqcRcbQLgveLGmtTWKn3/C+N9wx0l//vPZmpw2aQE5vFUq3Uanb2RHMXjNAVVTfhLxyH2YShAQAA
     Metadata:
       aws:cdk:path: sprockets-catalog-core/CDKMetadata/Default
     Condition: CDKMetadataAvailable
