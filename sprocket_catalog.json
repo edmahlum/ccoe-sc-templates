@@ -538,22 +538,20 @@
           {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
           {"Type":"LaunchRoleConstraint","Parameters":"SprockEC2ConfigMonitoringLaunchRole"},
           {"Type":"NotificationConstraint","Parameters": [{"Topic": "CCOENotify"}]}
-          ],
-         "TagOptions":[
-          {"ID":"Dept10005"},
-          {"ID":"Dept10007"},
-          {"ID":"Dept10008"},
-          {"ID":"Dept10200"},
-          {"ID":"Dept10201"},
-          {"ID":"Dept10202"},
-          {"ID":"Dept10501"},
-          {"ID":"Dept10700"}
-          ],
-         "IAMLaunchPolicies":[
-          {"Name":"Admin"}
-          ]
-         }
-       ]
-      }
-    ]
+          ]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"},
+        {"ID":"Dept10008"},
+        {"ID":"Dept10200"},
+        {"ID":"Dept10201"},
+        {"ID":"Dept10202"},
+        {"ID":"Dept10501"},
+        {"ID":"Dept10700"}
+        ],
+      "IAMLaunchPolicies":[
+        {"Name":"Admin"}
+        ]
+    }
+  ]
 }
