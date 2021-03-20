@@ -518,9 +518,6 @@
        "IAMLaunchPolicies":[
          {"Name":"AWSLambda_FullAccess"}]
     },
-    "IAMLaunchPolicies":[
-      {"Name":"AWSLambda_FullAccess"}]
-    },
     {
       "ID":"SprockSageMaker",
       "Name":"Sprocket SageMaker Notebook",
@@ -597,6 +594,7 @@
       ],
       "IAMLaunchPolicies":[
         {"Name":"Admin"}]
+        }
+        ]
     }
-  ]
-}
+  }
