@@ -550,7 +550,7 @@
         {"ID":"Dept10700"}
         ],
       "IAMLaunchPolicies":[
-        {"Name":"Admin"}
+        {"Name":"AdministratorAccess"}
         ]
     }
   ]
