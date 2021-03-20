@@ -525,6 +525,45 @@ Resources:
       RoleName: SpacelySprocketsCatalogLaunchRole_SprockSageMaker
     Metadata:
       aws:cdk:path: sprockets-catalog-core/SprockSageMakerlaunch_role/Resource
+  SprockEC2ConfigMonitoringlaunchrole7F408C6F:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/Admin
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockEC2ConfigMonitoring
+    Metadata:
+      aws:cdk:path: sprockets-catalog-core/SprockEC2ConfigMonitoringlaunch_role/Resource
   serverlessInfraiamgroupBF02BD47:
     Type: AWS::IAM::Group
     Properties:
