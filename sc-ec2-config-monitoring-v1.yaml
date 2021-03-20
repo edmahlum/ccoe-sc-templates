@@ -1,0 +1,46 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  AWSConfigRulePublicIPs:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ec2-instance-no-public-ip
+      Description: Checks whether Amazon Elastic Compute Cloud (Amazon EC2) instances
+        have a public IP association. The rule is NON_COMPLIANT if the publicIp field
+        is present in the Amazon EC2 instance configuration item. This rule applies
+        only to IPv4.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: EC2_INSTANCE_NO_PUBLIC_IP
+  AWSConfigRuleDetailedMonitoringEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ec2-instance-detailed-monitoring-enabled
+      Description: Checks if detailed monitoring is enabled for EC2 instances.
+        The rule is NON_COMPLIANT if detailed monitoring is not enabled.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: EC2_INSTANCE_DETAILED_MONITORING_ENABLED
+  AWSConfigRuleEC2StoppedInstance:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ec2-stopped-instance-monitoring-enabled
+      Description: Checks if there are instances stopped for more than
+        the allowed number of days. The instance is NON_COMPLIANT if the
+        state of the ec2 instance has been stopped for longer than
+        the allowed number of days.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: EC2_STOPPED_INSTANCE
