@@ -371,7 +371,7 @@
       {
         "VersionName":"1.1",
         "VersionDescription":"Recommended: Includes config rules to check no public IPs, monitoring, and ensure instance is not stopped.",
-        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/1f5b12c048b419c6cadfb3caaf82243eb2a4be3e/sc-lamp-v1.yaml"
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/7ae31ea669d98f976efaef2602471f2ea3ca7a65/sc-lamp-v1.yaml"
       }
     ],
     "Portfolios":[
