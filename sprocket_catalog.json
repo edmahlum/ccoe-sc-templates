@@ -489,7 +489,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b769c14d405e418d6857ca2aa6f0947ecd0d831f/sc-config-ec2-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/56721c66535232fa0fd85d8e66200bc466589d25/sc-config-ec2-monitoring-v1.yaml"
         }],
       "Portfolios":[
         {"PortfolioID":"ccoeitInfra", "Constraints":[
