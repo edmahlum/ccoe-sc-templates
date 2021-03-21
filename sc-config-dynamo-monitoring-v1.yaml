@@ -5,9 +5,7 @@ Resources:
     Type: AWS::Config::ConfigRule
     Properties:
       ConfigRuleName: dynamodb-autoscaling-enabled
-      Description: Checks if Auto Scaling or On-Demand is enabled on your DynamoDB tables and/or
-      global secondary indexes. Optionally you can set the read and write capacity units for the
-      table or global secondary index.
+      Description: Checks if Auto Scaling or On-Demand is enabled on your DynamoDB tables and/or  global secondary indexes. Optionally you can set the read and write capacity units for the table or global secondary index.
       InputParameters: {}
       Scope:
         ComplianceResourceTypes:
@@ -19,8 +17,7 @@ Resources:
     Type: AWS::Config::ConfigRule
     Properties:
       ConfigRuleName: dynamodb-in-backup-plan
-      Description: Checks whether Amazon DynamoDB table is present in AWS Backup Plans. The rule
-      is NON_COMPLIANT if Amazon DynamoDB tables are not present in any AWS Backup plan.
+      Description: Checks whether Amazon DynamoDB table is present in AWS Backup Plans. The rule is NON_COMPLIANT if Amazon DynamoDB tables are not present in any AWS Backup plan.
       InputParameters: {}
       Scope:
         ComplianceResourceTypes:
@@ -32,8 +29,7 @@ Resources:
     Type: AWS::Config::ConfigRule
     Properties:
       ConfigRuleName: dynamodb-table-encryption-enabled
-      Description: Checks if the Amazon DynamoDB tables are encrypted and checks their status.
-      The rule is COMPLIANT if the status is enabled or enabling.
+      Description: Checks if the Amazon DynamoDB tables are encrypted and checks their status. The rule is COMPLIANT if the status is enabled or enabling.
       InputParameters: {}
       Scope:
         ComplianceResourceTypes:
