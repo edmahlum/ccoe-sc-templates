@@ -1,0 +1,29 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  AWSConfigRuleS3BucketLogging:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: s3-bucket-logging-enabled
+      Description: Checks whether logging is enabled for your S3 buckets.
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_LOGGING_ENABLED
+  AWSConfigRuleS3BucketNotPublicReadable:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: s3-bucket-public-read-prohibited
+      Description: Checks if your Amazon S3 buckets do not allow public read access.
+      The rule checks the Block Public Access settings, the bucket policy, and the
+      bucket access control list (ACL).
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_PUBLIC_READ_PROHIBITED
