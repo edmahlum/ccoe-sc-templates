@@ -51,7 +51,7 @@ Resources:
       Description: Checks whether the specified resource type has a CloudWatch alarm
         for the specified metric. For resource type, you can specify EBS volumes,
         EC2 instances, RDS clusters, or S3 buckets.
-      InputParameters: {"resourceType":"AWS::EC2::Instance","metricName":,"CPUUtilization"}
+      InputParameters: {"resourceType":"AWS::EC2::Instance","metricName":"CPUUtilization"}
       Scope:
         ComplianceResourceTypes:
           - AWS::EC2::Instance

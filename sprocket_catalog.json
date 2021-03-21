@@ -517,7 +517,7 @@
         {
           "VersionName": "1.0",
           "VersionDescription": "Initial version",
-          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b769c14d405e418d6857ca2aa6f0947ecd0d831f/sc-config-dynamo-monitoring-v1.yaml"
+          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/93bdaa3b798e0a211f26ef585549ff6f5583a7bc/sc-config-dynamo-monitoring-v1.yaml"
         }
       ],
       "Portfolios": [
@@ -548,7 +548,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b769c14d405e418d6857ca2aa6f0947ecd0d831f/sc-config-s3-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/93bdaa3b798e0a211f26ef585549ff6f5583a7bc/sc-config-s3-monitoring-v1.yaml"
         }
       ],
       "Portfolios":[
