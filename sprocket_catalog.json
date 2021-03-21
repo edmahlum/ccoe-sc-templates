@@ -489,12 +489,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/35ac36e4a252bab684033b3d54062ec928e1751d/sc-config-ec2-monitoring-v1.yaml"
-        },
-        {
-          "VersionName":"1.1",
-          "VersionDescription":"Recommended: Includes Cloudwatch config rule",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/f8261741ad8e3c22a52a7d36e7f109924d1464bc/sc-config-ec2-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b769c14d405e418d6857ca2aa6f0947ecd0d831f/sc-config-ec2-monitoring-v1.yaml"
         }],
       "Portfolios":[
         {"PortfolioID":"ccoeitInfra", "Constraints":[
