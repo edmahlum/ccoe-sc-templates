@@ -44,3 +44,17 @@ Resources:
       Source:
         Owner: AWS
         SourceIdentifier: EC2_STOPPED_INSTANCE
+  AWSConfigRuleEC2StoppedInstance:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ec2-cloud-watch-monitoring-enabled
+      Description: Checks whether the specified resource type has a CloudWatch alarm
+        for the specified metric. For resource type, you can specify EBS volumes,
+        EC2 instances, RDS clusters, or S3 buckets.
+      InputParameters: {"resourceType":"AWS::EC2::Instance","metricName":,"CPUUtilization"}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_ALARM_RESOURCE_CHECK
