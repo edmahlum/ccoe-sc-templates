@@ -572,40 +572,19 @@
         {
           "PortfolioID": "ccoeitInfra",
           "Constraints": [
-            {
-              "Type": "ResourceUpdateConstraint",
-              "Parameters": "ALLOWED"
-            },
-            {
-              "Type": "LaunchRoleConstraint",
-              "Parameters": "SprockEC2ConfigMonitoringLaunchRole"
-            },
-            {
-              "Type": "NotificationConstraint",
-              "Parameters": [
-                {
-                  "Topic": "CCOENotify"
-                }
-              ]
-            }
-          ]
-        }
-      ],
+            {"Type": "ResourceUpdateConstraint", "Parameters": "ALLOWED"},
+            {"Type": "LaunchRoleConstraint", "Parameters": "SprockConfigDynamoMonitoringLaunchRole"},
+            {"Type": "NotificationConstraint", "Parameters": [{"Topic": "CCOENotify"}]}
+          ]}],
       "TagOptions": [
-        {
-          "ID": "Dept10005"
-        },
-        {
-          "ID": "Dept10007"
-        }
-      ],
+        {"ID": "Dept10005"},
+        {"ID": "Dept10007"}
+        ],
       "IAMLaunchPolicies": [
-        {
-          "Name": "AdministratorAccess"
-        }
-      ]
-    },
-    {
+        {"Name": "AdministratorAccess"}
+        ]
+      },
+      {
       "ID":"SprockConfigS3Monitoring",
       "Name":"Sprocket Config S3 Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using S3 to provide the necessary config monitoring",
@@ -624,7 +603,7 @@
       "Portfolios":[
         {"PortfolioID":"ccoeitInfra", "Constraints":[
           {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-          {"Type":"LaunchRoleConstraint","Parameters":"SprockEC2ConfigMonitoringLaunchRole"},
+          {"Type":"LaunchRoleConstraint","Parameters":"SprockConfigS3MonitoringLaunchRole"},
           {"Type":"NotificationConstraint","Parameters": [{"Topic": "CCOENotify"}]}
         ]}],
       "TagOptions":[
