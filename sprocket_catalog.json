@@ -155,9 +155,9 @@
           "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
         },
         {
-          "VersionName":"2.0",
-          "VersionDescription":"Base version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
+          "VersionName":"1.1",
+          "VersionDescription":"Recommended: Includes cloudwatch metrics for monitoring.",
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/8b176f0f6a4be29ab930757a5d32e81980205279/sc-dynamodb-v1.yaml"
         }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
@@ -417,6 +417,11 @@
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
       "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
+      },
+      {
+        "VersionName":"1.1",
+        "VersionDescription":"Recommended: Includes CloudWatch metrics for monitoring",
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/8b176f0f6a4be29ab930757a5d32e81980205279/sc-s3-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"ec2Infra", "Constraints":[
