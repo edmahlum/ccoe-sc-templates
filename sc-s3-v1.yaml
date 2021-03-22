@@ -10,6 +10,8 @@ Resources:
     Properties:
       AccessControl: Private
       BucketName: !Ref MyBucketName
+      MetricsConfigurations:
+        - Id: EntireBucket
 Outputs:
   BucketName:
     Value: !Ref S3Bucket

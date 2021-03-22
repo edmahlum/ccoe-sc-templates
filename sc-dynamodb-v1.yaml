@@ -1,6 +1,7 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'DynamoDB CCOE compliant database.'
+Transform: AWS::ServiceCatalog
 Parameters:
   TableName:
     Type: String
@@ -24,6 +25,34 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
+  DynamoDBAccountReadCapAlarm:
+    Type: 'AWS::CloudWatch::Alarm'
+    Properties:
+      AlarmName: 'DynamoDBAccountReadCapAlarm'
+      AlarmDescription: 'Alarm when account approaches maximum read capacity limit'
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+      Namespace: 'AWS/DynamoDB'
+      MetricName: 'AccountProvisionedReadCapacityUtilization'
+      Statistic: 'Maximum'
+      Threshold: 20
+      ComparisonOperator: 'GreaterThanThreshold'
+      Period: 300
+      EvaluationPeriods: 1
+  DynamoDBAccountWriteCapAlarm:
+    Type: 'AWS::CloudWatch::Alarm'
+    Properties:
+      AlarmName: 'DynamoDBAccountWriteCapAlarm'
+      AlarmDescription: 'Alarm when account approaches maximum write capacity limit'
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+      Namespace: 'AWS/DynamoDB'
+      MetricName: 'AccountProvisionedWriteCapacityUtilization'
+      Statistic: 'Maximum'
+      Threshold: 20
+      ComparisonOperator: 'GreaterThanThreshold'
+      Period: 300
+      EvaluationPeriods: 1
 Outputs:
   TableName:
     Value: !Ref 'TableName'
