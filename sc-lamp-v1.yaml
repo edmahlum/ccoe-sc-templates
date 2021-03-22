@@ -115,6 +115,11 @@ Resources:
         ToPort: '22'
         CidrIp:
           Ref: SSHLocation
+  WebServerLogyGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub 'WebServerLogGroup${AWS::StackName}'
+      RetentionInDays: 7
   CPUAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
@@ -132,7 +137,57 @@ Resources:
         - Name: InstanceId
           Value:
             Ref: WebServerInstance
-
+  NetworkInAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Network in alarm for the LAMP instance
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+      MetricName: NetworkIn
+      Namespace: AWS/EC2
+      Statistic: Average
+      Period: '60'
+      EvaluationPeriods: '3'
+      Threshold: '90'
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: InstanceId
+          Value:
+            Ref: WebServerInstance
+  NetworkOutAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Network out alarm for the LAMP instance
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+      MetricName: NetworkOut
+      Namespace: AWS/EC2
+      Statistic: Average
+      Period: '60'
+      EvaluationPeriods: '3'
+      Threshold: '90'
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: InstanceId
+          Value:
+            Ref: WebServerInstance
+  StatusCheckFailedAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Status check failed alarm for the LAMP instance
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+      MetricName: StatusCheckFailed
+      Namespace: AWS/EC2
+      Statistic: Average
+      Period: '60'
+      EvaluationPeriods: '3'
+      Threshold: '1'
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: InstanceId
+          Value:
+            Ref: WebServerInstance
 Outputs:
   WebsiteURL:
     Description: URL for newly created LAMP stack
