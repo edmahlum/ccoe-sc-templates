@@ -32,6 +32,13 @@ Parameters:
     Default: 0.0.0.0/0
     AllowedPattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
     ConstraintDescription: Must be a valid IP CIDR range of the form x.x.x.x/x
+  ApplicationName:
+    Type: String
+    Description: Provide the name of the application associated with this provisioned product
+    Default: DefaultApplication
+    MinLength: '1'
+    MaxLength: '128'
+    AllowedPattern: "([a-zA-Z0-9][a-zA-Z0-9_-]*)"
 Mappings:
   AWSInstanceType2Arch:
     t1.micro:
@@ -84,6 +91,14 @@ Mappings:
     cn-northwest-1:
       HVM64: ami-6b6a7d09
 Resources:
+  ApplicationAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
+    Properties:
+      Application:
+        Ref: ApplicationName
+      ResourceType: CFN_STACK
+      Resource:
+        Ref: AWS::StackId
   WebServerInstance:
     Type: AWS::EC2::Instance
     Properties:
@@ -97,6 +112,7 @@ Resources:
           - Arch
       InstanceType:
         Ref: InstanceType
+      IamInstanceProfile: SprocketTestEC2Role
       SecurityGroups:
       - Ref: WebServerSecurityGroup
       KeyName:

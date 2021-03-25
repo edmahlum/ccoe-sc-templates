@@ -7,7 +7,22 @@ Parameters:
   RDSPassword:
     Type: String
     Description: Provide the password for your RDS database
+  ApplicationName:
+    Type: String
+    Description: Provide the name of the application associated with this provisioned product
+    Default: DefaultApplication
+    MinLength: '1'
+    MaxLength: '128'
+    AllowedPattern: "([a-zA-Z0-9][a-zA-Z0-9_-]*)"
 Resources:
+  ApplicationAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
+    Properties:
+      Application:
+        Ref: ApplicationName
+      ResourceType: CFN_STACK
+      Resource:
+        Ref: AWS::StackId
   MyDB:
     Type: AWS::RDS::DBInstance
     Properties:

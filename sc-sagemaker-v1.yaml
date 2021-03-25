@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Amazon SageMaker notebook instance.
-
 Parameters:
   DeploymentName:
     Description: Name of the SageMaker deployment to launch this notebook to
@@ -8,7 +7,6 @@ Parameters:
   IAMRoleArn:
       Description: The ARN of the IAM role
       Type: String
-
   InstanceType:
     Description: The type of ML compute instance to launch for the notebook
     Type: String
@@ -17,8 +15,22 @@ Parameters:
       - ml.t2.medium
       - ml.t2.large
       - ml.t2.xlarge
-
+  ApplicationName:
+    Type: String
+    Description: Provide the name of the application associated with this provisioned product
+    Default: DefaultApplication
+    MinLength: '1'
+    MaxLength: '128'
+    AllowedPattern: "([a-zA-Z0-9][a-zA-Z0-9_-]*)"
 Resources:
+  ApplicationAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
+    Properties:
+      Application:
+        Ref: ApplicationName
+      ResourceType: CFN_STACK
+      Resource:
+        Ref: AWS::StackId
   NotebookInstance:
     Type: "AWS::SageMaker::NotebookInstance"
     Properties:
