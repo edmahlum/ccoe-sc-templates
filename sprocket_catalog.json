@@ -180,7 +180,7 @@
     "IAMLaunchPolicies":[
       {"Name":"AmazonDynamoDBFullAccess"},
       {"Name": "service-role/AWSConfigRole"},
-      {"Name": "CloudWatchLogsFullAccess"}]
+      {"Name": "CloudWatchFullAccess"}]
     },
     {
     "ID":"SprockLambdaPython",
@@ -360,7 +360,7 @@
     "IAMLaunchPolicies": [
       {"Name": "AmazonEC2FullAccess"},
       {"Name": "service-role/AWSConfigRole"},
-      {"Name": "CloudWatchLogsFullAccess"},
+      {"Name": "CloudWatchFullAccess"},
       {"Name": "AdministratorAccess"}]
     },
     {
@@ -440,7 +440,7 @@
     "IAMLaunchPolicies":[
       {"Name":"AWSLambda_FullAccess"},
       {"Name": "service-role/AWSConfigRole"},
-      {"Name": "CloudWatchLogsFullAccess"}]
+      {"Name": "CloudWatchFullAccess"}]
     },
     {
     "ID":"SprockSageMaker",
