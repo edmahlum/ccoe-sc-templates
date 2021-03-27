@@ -360,7 +360,8 @@
     "IAMLaunchPolicies": [
       {"Name": "AmazonEC2FullAccess"},
       {"Name": "service-role/AWSConfigRole"},
-      {"Name": "CloudWatchLogsFullAccess"}]
+      {"Name": "CloudWatchLogsFullAccess"},
+      {"Name": "AdministratorAccess"}]
     },
     {
     "ID":"SprockRDS",
@@ -489,7 +490,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/56721c66535232fa0fd85d8e66200bc466589d25/sc-config-ec2-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-ec2-monitoring-v1.yaml"
         }],
       "Portfolios":[
         {"PortfolioID":"ccoeitInfra", "Constraints":[
@@ -517,7 +518,7 @@
         {
           "VersionName": "1.0",
           "VersionDescription": "Initial version",
-          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/93bdaa3b798e0a211f26ef585549ff6f5583a7bc/sc-config-dynamo-monitoring-v1.yaml"
+          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-dynamo-monitoring-v1.yaml"
         }
       ],
       "Portfolios": [
@@ -548,7 +549,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/93bdaa3b798e0a211f26ef585549ff6f5583a7bc/sc-config-s3-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-s3-monitoring-v1.yaml"
         }
       ],
       "Portfolios":[

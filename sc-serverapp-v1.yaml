@@ -1,6 +1,5 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::ServiceCatalog
 Parameters:
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
@@ -47,7 +46,34 @@ Parameters:
     Description: Provide the name of the DynamoDB table index
   MyBucketName:
     Type: String
-    Description: The name of the bucket
+    Description: The name of the S3 bucket
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      -
+        Label:
+          default: "Application Configuration"
+        Parameters:
+          - ApplicationName
+          - ApplicationDescription
+      -
+        Label:
+          default: "Compute Configuration"
+        Parameters:
+          - InstanceType
+          - KeyName
+          - SSHLocation
+      -
+        Label:
+          default: "Dynamo Configuration"
+        Parameters:
+          - TableName
+          - IndexName
+      -
+        Label:
+          default: "S3 Configuration"
+        Parameters:
+          - MyBucketName
 Resources:
   ApplicationRegistration:
     Type: AWS::ServiceCatalogAppRegistry::Application
@@ -60,7 +86,7 @@ Resources:
     Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
     Properties:
       Application:
-        Ref: ApplicationName
+        Ref: ApplicationRegistration
       ResourceType: CFN_STACK
       Resource:
         Ref: AWS::StackId
@@ -75,21 +101,27 @@ Resources:
           Key: ApplicationName
           Value:
             Ref: ApplicationName
-        - Key: InstanceType
+        -
+          Key: InstanceType
           Value:
             Ref: InstanceType
-        - Key: KeyName
+        -
+          Key: KeyName
           Value:
             Ref: KeyName
-        - Key: SSHLocation
+        -
+          Key: SSHLocation
           Value:
             Ref: SSHLocation
       Tags:
-        - Key: DataSecurityClassification
+        -
+          Key: DataSecurityClassification
           Value: "High"
-        - Key: Environment
+        -
+          Key: Environment
           Value: "Development"
-        - Key: Department
+        -
+          Key: Department
           Value: "10005"
   FileStorage:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
@@ -131,7 +163,8 @@ Resources:
           Key: IndexName
           Value:
             Ref: IndexName
-        - Key: TableName
+        -
+          Key: TableName
           Value:
             Ref: TableName
       Tags:
@@ -210,10 +243,4 @@ Resources:
 Outputs:
   WebsiteURL:
     Description: URL for newly created EC2 stack
-    Value:
-      Fn::Join:
-      - ''
-      - - http://
-        - Fn::GetAtt:
-          - [Compute, Outputs.WebServerInstance]
-          - [Compute, Outputs.PublicDnsName]
+    Value: !GetAtt [Compute, Outputs.WebsiteURL]
