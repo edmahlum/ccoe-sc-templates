@@ -7,7 +7,7 @@ Parameters:
     Type: String
     Description: Provide the name of your DynamoDB table
     MinLength: 3
-    MaxLength: 10
+    MaxLength: 30
   IndexName:
     Type: String
     Description: Provide the name of the DynamoDB table index
@@ -27,7 +27,7 @@ Resources:
       ResourceType: CFN_STACK
       Resource:
         Ref: AWS::StackId
-  CustomerDatabase:
+  DynamoTable:
     Type: 'AWS::DynamoDB::Table'
     Properties:
       TableName: !Ref 'TableName'
@@ -40,34 +40,74 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
-  DynamoDBAccountReadCapAlarm:
+  DynamoReadCapAlarm:
     Type: 'AWS::CloudWatch::Alarm'
     Properties:
-      AlarmName: 'DynamoDBAccountReadCapAlarm'
-      AlarmDescription: 'Alarm when account approaches maximum read capacity limit'
+      AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-ReadCapacityAlarm'
+      AlarmDescription: 'Alarm when dynamo table approaches maximum read capacity limit'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
-      Namespace: 'AWS/DynamoDB'
-      MetricName: 'AccountProvisionedReadCapacityUtilization'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+      Namespace: AWS/DynamoDB
+      MetricName: AccountProvisionedReadCapacityUtilization
+      Dimensions:
+        - Name: TableName
+          Value: !Ref DynamoTable
       Statistic: 'Maximum'
       Threshold: 20
       ComparisonOperator: 'GreaterThanThreshold'
       Period: 300
       EvaluationPeriods: 1
-  DynamoDBAccountWriteCapAlarm:
+  DynamoWriteCapAlarm:
     Type: 'AWS::CloudWatch::Alarm'
     Properties:
-      AlarmName: 'DynamoDBAccountWriteCapAlarm'
-      AlarmDescription: 'Alarm when account approaches maximum write capacity limit'
+      AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-WriteCapacityAlarm'
+      AlarmDescription: 'Alarm when dynamo table approaches maximum write capacity limit'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
-      Namespace: 'AWS/DynamoDB'
-      MetricName: 'AccountProvisionedWriteCapacityUtilization'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+      Namespace: AWS/DynamoDB
+      MetricName: AccountProvisionedWriteCapacityUtilization
+      Dimensions:
+        - Name: TableName
+          Value: !Ref DynamoTable
       Statistic: 'Maximum'
       Threshold: 20
       ComparisonOperator: 'GreaterThanThreshold'
       Period: 300
       EvaluationPeriods: 1
+  DynamoReadThrottleAlarm:
+    Type: 'AWS::CloudWatch::Alarm'
+    Properties:
+      AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-ReadThrottleAlarm'
+      AlarmDescription: 'Alarm when dynamo table experiences read throttle events'
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+      Namespace: AWS/DynamoDB
+      MetricName: ReadThrottleEvents
+      Dimensions:
+        - Name: TableName
+          Value: !Ref DynamoTable
+      Statistic: 'Average'
+      Threshold: 20
+      ComparisonOperator: 'GreaterThanThreshold'
+      Period: 3600
+      EvaluationPeriods: 2
+  DynamoWriteThrottleAlarm:
+    Type: 'AWS::CloudWatch::Alarm'
+    Properties:
+      AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-WriteThrottleAlarm'
+      AlarmDescription: 'Alarm when dynamo table experiences write throttle events'
+      AlarmActions:
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+      Namespace: AWS/DynamoDB
+      MetricName: WriteThrottleEvents
+      Dimensions:
+        - Name: TableName
+          Value: !Ref DynamoTable
+      Statistic: 'Average'
+      Threshold: 20
+      ComparisonOperator: 'GreaterThanThreshold'
+      Period: 3600
+      EvaluationPeriods: 2
 Outputs:
   TableName:
     Value: !Ref 'TableName'

@@ -1,11 +1,5 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'AWS CloudFormation sample template LAMP_Single_Instance: Create a LAMP
-  stack using a single EC2 instance and a local MySQL database for storage. This template
-  demonstrates using the AWS CloudFormation bootstrap scripts to install the packages
-  and files necessary to deploy the Apache web server, PHP, and MySQL at instance
-  launch time. **WARNING** This template creates an Amazon EC2 instance. You will
-  be billed for the AWS resources used if you create a stack from this template.'
 Transform: AWS::ServiceCatalog
 Parameters:
   KeyName:
@@ -139,9 +133,10 @@ Resources:
   CPUAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: CPU alarm for the LAMP instance
+      AlarmName: !Sub '${ApplicationName}-EC2-CPUAlarm'
+      AlarmDescription: CPU alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
       MetricName: CPUUtilization
       Namespace: AWS/EC2
       Statistic: Average
@@ -156,9 +151,10 @@ Resources:
   NetworkInAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: Network in alarm for the LAMP instance
+      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficInAlarm'
+      AlarmDescription: Network in alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
       MetricName: NetworkIn
       Namespace: AWS/EC2
       Statistic: Average
@@ -173,9 +169,10 @@ Resources:
   NetworkOutAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: Network out alarm for the LAMP instance
+      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficOutAlarm'
+      AlarmDescription: Network out alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
       MetricName: NetworkOut
       Namespace: AWS/EC2
       Statistic: Average
@@ -190,9 +187,10 @@ Resources:
   StatusCheckFailedAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: Status check failed alarm for the LAMP instance
+      AlarmName: !Sub '${ApplicationName}-EC2-StatusCheckFailedAlarm'
+      AlarmDescription: Status check failed alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnCCOENotify]]'
+        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
       MetricName: StatusCheckFailed
       Namespace: AWS/EC2
       Statistic: Average
@@ -206,7 +204,7 @@ Resources:
             Ref: WebServerInstance
 Outputs:
   WebsiteURL:
-    Description: URL for newly created LAMP stack
+    Description: URL for newly created EC2 stack
     Value:
       Fn::Join:
       - ''

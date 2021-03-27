@@ -60,7 +60,7 @@ Resources:
       Source:
         Owner: AWS
         SourceIdentifier: EC2_STOPPED_INSTANCE
-  AWSConfigRuleEC2StoppedInstance:
+  AWSConfigRuleCloudWatchMonitoring:
     Type: AWS::Config::ConfigRule
     Properties:
       ConfigRuleName: ec2-cloud-watch-monitoring-enabled

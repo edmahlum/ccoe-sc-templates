@@ -27,6 +27,78 @@ Resources:
       BucketName: !Ref MyBucketName
       MetricsConfigurations:
         - Id: EntireBucket
+  S3LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub 'S3LogGroup${AWS::StackName}'
+      RetentionInDays: 7
+  MetricFilterCloudWatchAlarm:
+    Type: AWS::Logs::MetricFilter
+    Properties:
+      LogGroupName: !Ref S3LogGroup
+      FilterPattern: "{ ($.eventSource = s3.amazonaws.com) && (($.eventName = PutBucketAcl) || ($.eventName = PutBucketPolicy) || ($.eventName = PutBucketCors) || ($.eventName = PutBucketLifecycle) || ($.eventName = PutBucketReplication) || ($.eventName = DeleteBucketPolicy) || ($.eventName = DeleteBucketCors) || ($.eventName = DeleteBucketLifecycle) || ($.eventName = DeleteBucketReplication)) }"
+      MetricTransformations:
+        - MetricValue: "1"
+          MetricNamespace: "CloudTrailMetrics"
+          MetricName: "S3BucketActivityEventCount"
+  CloudWatchAlarmS3Changes:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmName: !Sub '${ApplicationName}-S3-${MyBucketName}-ChangesAlarm'
+      AlarmDescription: "A CloudWatch Alarm that triggers when changes are made to an S3 Bucket."
+      MetricName: "S3BucketActivityEventCount"
+      Namespace: "CloudTrailMetrics"
+      Dimensions:
+        - Name: BucketName
+          Value: !Ref S3Bucket
+        - Name: StorageType
+          Value: StandardStorage
+      Statistic: "Sum"
+      Period: "300"
+      EvaluationPeriods: "1"
+      Threshold: "1"
+      ComparisonOperator: "GreaterThanOrEqualToThreshold"
+      AlarmActions:
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+      TreatMissingData: "notBreaching"
+  CloudWatchAlarmNumberofObjects:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmName: !Sub '${ApplicationName}-S3-${MyBucketName}-NumberOfObjectsAlarm'
+      AlarmDescription: "A CloudWatch Alarm that triggers when there are more than two objects in the bucket."
+      MetricName: NumberOfObjects
+      Namespace: AWS/S3
+      Dimensions:
+        - Name: BucketName
+          Value: !Ref S3Bucket
+        - Name: StorageType
+          Value: StandardStorage
+      Statistic: "Average"
+      Period: "3600"
+      EvaluationPeriods: "2"
+      Threshold: "2"
+      ComparisonOperator: "GreaterThanOrEqualToThreshold"
+      AlarmActions:
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+  CloudWatchAlarmBucketSize:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmName: !Sub '${ApplicationName}-S3-${MyBucketName}-BucketSizeAlarm'
+      AlarmDescription: "A CloudWatch Alarm that triggers when the bucket size in bytes exceeds the permitted threshold."
+      MetricName: BucketSizeBytes
+      Namespace: AWS/S3
+      Dimensions:
+        - Name: BucketName
+          Value: !Ref S3Bucket
+        - Name: StorageType
+          Value: StandardStorage
+      Statistic: "Average"
+      Period: "3600"
+      EvaluationPeriods: "2"
+      Threshold: "100"
+      ComparisonOperator: "GreaterThanOrEqualToThreshold"
+      AlarmActions:
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
 Outputs:
   BucketName:
     Value: !Ref S3Bucket
