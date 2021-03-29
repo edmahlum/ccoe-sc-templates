@@ -53,10 +53,11 @@ Resources:
         - Name: TableName
           Value: !Ref DynamoTable
       Statistic: 'Maximum'
-      Threshold: 20
+      Threshold: 4
       ComparisonOperator: 'GreaterThanThreshold'
       Period: 300
       EvaluationPeriods: 1
+      TreatMissingData: breaching
   DynamoWriteCapAlarm:
     Type: 'AWS::CloudWatch::Alarm'
     Properties:
@@ -74,6 +75,7 @@ Resources:
       ComparisonOperator: 'GreaterThanThreshold'
       Period: 300
       EvaluationPeriods: 1
+      TreatMissingData: breaching
   DynamoReadThrottleAlarm:
     Type: 'AWS::CloudWatch::Alarm'
     Properties:
@@ -87,10 +89,11 @@ Resources:
         - Name: TableName
           Value: !Ref DynamoTable
       Statistic: 'Average'
-      Threshold: 20
+      Threshold: 4
       ComparisonOperator: 'GreaterThanThreshold'
-      Period: 3600
-      EvaluationPeriods: 2
+      Period: 300
+      EvaluationPeriods: 1
+      TreatMissingData: breaching
   DynamoWriteThrottleAlarm:
     Type: 'AWS::CloudWatch::Alarm'
     Properties:
@@ -108,6 +111,7 @@ Resources:
       ComparisonOperator: 'GreaterThanThreshold'
       Period: 3600
       EvaluationPeriods: 2
+      TreatMissingData: breaching
 Outputs:
   TableName:
     Value: !Ref 'TableName'
