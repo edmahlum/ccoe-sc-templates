@@ -836,7 +836,7 @@ Resources:
         - Ref: SprockServerApplaunchrole204D1C17
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockServerApplaunch_role/DefaultPolicy/Resource
-  SprockConfigCloudWatchMonitoringlaunchroleB9E9A874:
+  SprockConfigCWMonitoringlaunchrole4E42936A:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -877,10 +877,10 @@ Resources:
             - - "arn:"
               - Ref: AWS::Partition
               - :iam::aws:policy/AdministratorAccess
-      RoleName: SpacelySprocketsCatalogLaunchRole_SprockConfigCloudWatchMonitoring
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockConfigCWMonitoring
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockConfigCloudWatchMonitoringlaunch_role/Resource
-  SprockConfigCloudWatchMonitoringlaunchroleDefaultPolicy925460BD:
+      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockConfigCWMonitoringlaunch_role/Resource
+  SprockConfigCWMonitoringlaunchroleDefaultPolicy90AE643A:
     Type: AWS::IAM::Policy
     Properties:
       PolicyDocument:
@@ -891,11 +891,11 @@ Resources:
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
-      PolicyName: SprockConfigCloudWatchMonitoringlaunchroleDefaultPolicy925460BD
+      PolicyName: SprockConfigCWMonitoringlaunchroleDefaultPolicy90AE643A
       Roles:
-        - Ref: SprockConfigCloudWatchMonitoringlaunchroleB9E9A874
+        - Ref: SprockConfigCWMonitoringlaunchrole4E42936A
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockConfigCloudWatchMonitoringlaunch_role/DefaultPolicy/Resource
+      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockConfigCWMonitoringlaunch_role/DefaultPolicy/Resource
   serverlessInfraiamgroupBF02BD47:
     Type: AWS::IAM::Group
     Properties:
@@ -1087,14 +1087,14 @@ Outputs:
         - Arn
     Export:
       Name: LaunchRoleSprockServerApp
-  LaunchRoleSprockConfigCloudWatchMonitoring:
-    Description: The ARN of the Service Catalog launch role for the product SprockConfigCloudWatchMonitoring
+  LaunchRoleSprockConfigCWMonitoring:
+    Description: The ARN of the Service Catalog launch role for the product SprockConfigCWMonitoring
     Value:
       Fn::GetAtt:
-        - SprockConfigCloudWatchMonitoringlaunchroleB9E9A874
+        - SprockConfigCWMonitoringlaunchrole4E42936A
         - Arn
     Export:
-      Name: LaunchRoleSprockConfigCloudWatchMonitoring
+      Name: LaunchRoleSprockConfigCWMonitoring
   IAMGroupserverlessInfra:
     Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_serverlessInfra
     Value:
