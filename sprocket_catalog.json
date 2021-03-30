@@ -595,7 +595,7 @@
       ]
     },
     {
-      "ID":"SprockConfigCloudWatchMonitoring",
+      "ID":"SprockConfigCWMonitoring",
       "Name":"Sprocket Config CloudWatch Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using CloudWatch to provide the necessary config monitoring",
       "Owner":"Sprockets CCOE Team",
