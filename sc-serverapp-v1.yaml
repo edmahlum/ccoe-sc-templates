@@ -47,7 +47,6 @@ Parameters:
   MyBucketName:
     Type: String
     Description: The name of the S3 bucket
-    AllowedPattern: "([a-z0-9])"
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
