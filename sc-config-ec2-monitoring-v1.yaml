@@ -74,3 +74,16 @@ Resources:
       Source:
         Owner: AWS
         SourceIdentifier: CLOUDWATCH_ALARM_RESOURCE_CHECK
+  AWSConfigRuleSecurityGroup:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ec2-cloud-watch-monitoring-enabled
+      Description: Checks that non-default security groups are attached to Amazon Elastic Compute Cloud (EC2) instances
+      or an elastic network interfaces (ENIs)
+      InputParameters: {}
+      Scope:
+        ComplianceResourceTypes:
+          - AWS::EC2::Instance
+      Source:
+        Owner: AWS
+        SourceIdentifier: EC2_SECURITY_GROUP_ATTACHED_TO_ENI
