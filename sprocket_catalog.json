@@ -593,6 +593,35 @@
       "IAMLaunchPolicies":[
         {"Name":"AmazonEC2FullAccess"}
       ]
+    },
+    {
+      "ID":"SprockConfigCloudWatchMonitoring",
+      "Name":"Sprocket Config CloudWatch Monitoring",
+      "Description":"The Sprocket Config Rules that must be installed in every account using CloudWatch to provide the necessary config monitoring",
+      "Owner":"Sprockets CCOE Team",
+      "Distributor":"Spacely Sprockets CCOE",
+      "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
+      "SupportEmail":"spacely_ccoe_support@spacelysprockets.com",
+      "SupportURL":"http://intranet.spacely-sprockets.com/catalog/ccoe-config-CloudWatch-monitoring-details.html",
+      "Versions":[
+        {
+          "VersionName":"1.0",
+          "VersionDescription":"Initial version",
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-cloudwatch-monitoring-v1.yaml"
+        }
+      ],
+      "Portfolios":[
+        {"PortfolioID":"ccoeitInfra", "Constraints":[
+          {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
+          {"Type":"LaunchRoleConstraint","Parameters":"SprockConfigS3MonitoringLaunchRole"}
+        ]}],
+      "TagOptions":[
+        {"ID":"Dept10005"},
+        {"ID":"Dept10007"}
+      ],
+      "IAMLaunchPolicies":[
+        {"Name":"AdministratorAccess"}
+      ]
     }
   ]
 }

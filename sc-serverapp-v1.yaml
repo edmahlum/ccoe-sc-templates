@@ -47,6 +47,7 @@ Parameters:
   MyBucketName:
     Type: String
     Description: The name of the S3 bucket
+    AllowedPattern: "([a-z0-9])"
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -223,6 +224,27 @@ Resources:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
       ProductName: Sprocket Config Dynamo Monitoring
+      ProvisioningArtifactName: '1.0'
+      PathName: 'Sprocket CCOE IT Infra'
+      ProvisioningParameters:
+        -
+          Key: ApplicationName
+          Value:
+            Ref: ApplicationName
+      Tags:
+        -
+          Key: DataSecurityClassification
+          Value: "High"
+        -
+          Key: Environment
+          Value: "Development"
+        -
+          Key: Department
+          Value: "10005"
+  ConfigCloudWatch:
+    Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
+    Properties:
+      ProductName: Sprocket Config CloudWatch Monitoring
       ProvisioningArtifactName: '1.0'
       PathName: 'Sprocket CCOE IT Infra'
       ProvisioningParameters:

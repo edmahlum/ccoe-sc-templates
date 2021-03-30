@@ -1,0 +1,47 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Config rules that will ensure we have CloudWatch alarms configured correctly
+Parameters:
+  ApplicationName:
+    Type: String
+    Description: Provide the name of the application associated with this provisioned product
+    Default: DefaultApplication
+    MinLength: '1'
+    MaxLength: '128'
+    AllowedPattern: "([a-zA-Z0-9][a-zA-Z0-9_-]*)"
+Resources:
+  ApplicationAssociation:
+    Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
+    Properties:
+      Application:
+        Ref: ApplicationName
+      ResourceType: CFN_STACK
+      Resource:
+        Ref: AWS::StackId
+  AWSConfigRuleCloudWatchAlarmAction:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudwatch-alarm-action-check
+      Description: Checks whether CloudWatch alarms have at least one alarm action, one INSUFFICIENT_DATA action, or one OK action enabled.
+      InputParameters: {"alarmActionRequired":"True","insufficientDataActionRequired":"False","okActionRequired":"False"}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_ALARM_ACTION_CHECK
+  AWSConfigRuleCloudWatchLogGroupEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudwatch-log-group-encrypted
+      Description: Checks if a log group in Amazon CloudWatch Logs is encrypted with a AWS Key Management Service (KMS) managed Customer Master Keys (CMK)
+      InputParameters: {}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_LOG_GROUP_ENCRYPTED
+  AWSConfigRuleLogGroupRetentionDefined:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: loggroup-retention-period-check
+      Description: Checks whether Amazon CloudWatch LogGroup retention period is set to specific number of days.
+      InputParameters: {"MinRetentionTime":"7"}
+      Source:
+        Owner: AWS
+        SourceIdentifier: CW_LOGGROUP_RETENTION_PERIOD_CHECK

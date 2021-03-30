@@ -74,12 +74,13 @@ Resources:
         - Name: StorageType
           Value: StandardStorage
       Statistic: "Average"
-      Period: "3600"
-      EvaluationPeriods: "2"
+      Period: "300"
+      EvaluationPeriods: "1"
       Threshold: "2"
       ComparisonOperator: "GreaterThanOrEqualToThreshold"
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+      TreatMissingData: notBreaching
   CloudWatchAlarmBucketSize:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
@@ -93,12 +94,13 @@ Resources:
         - Name: StorageType
           Value: StandardStorage
       Statistic: "Average"
-      Period: "3600"
-      EvaluationPeriods: "2"
+      Period: "300"
+      EvaluationPeriods: "1"
       Threshold: "100"
       ComparisonOperator: "GreaterThanOrEqualToThreshold"
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+      TreatMissingData: breaching
 Outputs:
   BucketName:
     Value: !Ref S3Bucket
