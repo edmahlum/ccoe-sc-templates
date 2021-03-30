@@ -79,7 +79,6 @@ Resources:
     Properties:
       ConfigRuleName: ec2-security-group-attached-to-eni
       Description: Checks that non-default security groups are attached to Amazon Elastic Compute Cloud (EC2) instances
-      or an elastic network interfaces (ENIs)
       InputParameters: {}
       Scope:
         ComplianceResourceTypes:
