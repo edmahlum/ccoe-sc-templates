@@ -588,7 +588,50 @@ Resources:
         - Ref: SprockSageMakerlaunchrole8A7CDC62
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockSageMakerlaunch_role/DefaultPolicy/Resource
-
+  SprockConfigEC2Monitoringlaunchrole74DF1BF5:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: servicecatalog.amazonaws.com
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AWSCloudFormationFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonS3FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonSNSFullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AdministratorAccess
+      RoleName: SpacelySprocketsCatalogLaunchRole_SprockConfigEC2Monitoring
+    Metadata:
+      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockConfigEC2Monitoringlaunch_role/Resource
   SprockConfigEC2MonitoringlaunchroleDefaultPolicy09A20ABA:
     Type: AWS::IAM::Policy
     Properties:
@@ -857,18 +900,6 @@ Resources:
               - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/serverlessInfraiam_group/Resource
-  containersInfraiamgroupE62103DD:
-    Type: AWS::IAM::Group
-    Properties:
-      GroupName: SpacelySprocketsCatalogIAMGroup_containersInfra
-      ManagedPolicyArns:
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/containersInfraiam_group/Resource
   ec2Infraiamgroup5D9C1221:
     Type: AWS::IAM::Group
     Properties:
@@ -1052,14 +1083,6 @@ Outputs:
         - Arn
     Export:
       Name: IAMGroupserverlessInfra
-  IAMGroupcontainersInfra:
-    Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_containersInfra
-    Value:
-      Fn::GetAtt:
-        - containersInfraiamgroupE62103DD
-        - Arn
-    Export:
-      Name: IAMGroupcontainersInfra
   IAMGroupec2Infra:
     Description: The ARN of the IAM group SpacelySprocketsCatalogGroup_ec2Infra
     Value:
