@@ -223,7 +223,14 @@ Resources:
   ConfigRecorder:
     Type: AWS::Config::ConfigurationRecorder
     Properties:
-      RoleARN: arn:aws:iam::133842445017:role/SpacelySprocketsConfigRole
+      RoleARN:
+        Fn::Join:
+          - ""
+          - - "arn:"
+            - Ref: AWS::Partition
+            - ":iam::"
+            - Ref: AWS::AccountId
+            - :role/SpacelySprocketsConfigRole
       Name: SpacelySprocketConfigRecorder
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreInRegionStack/ConfigRecorder
@@ -233,38 +240,6 @@ Resources:
     DeletionPolicy: Retain
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreInRegionStack/ConfigBucket/Resource
-  ConfigBucketPolicy6D5E90FF:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket:
-        Ref: ConfigBucket2112C5EC
-      PolicyDocument:
-        Statement:
-          - Action: s3:GetObjectAcl
-            Effect: Allow
-            Principal:
-              AWS: arn:aws:iam::133842445017:role/SpacelySprocketsConfigRole
-            Resource:
-              Fn::Join:
-                - ""
-                - - Fn::GetAtt:
-                      - ConfigBucket2112C5EC
-                      - Arn
-                  - /*
-          - Action: s3:PutObject
-            Effect: Allow
-            Principal:
-              AWS: arn:aws:iam::133842445017:role/SpacelySprocketsConfigRole
-            Resource:
-              Fn::Join:
-                - ""
-                - - Fn::GetAtt:
-                      - ConfigBucket2112C5EC
-                      - Arn
-                  - /*
-        Version: "2012-10-17"
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/ConfigBucket/Policy/Resource
   ConfigDeliveryChannel:
     Type: AWS::Config::DeliveryChannel
     Properties:
@@ -275,7 +250,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAAE02P0U7DMAxFv2XvXQaa0MQbpUg8MnX8QOZ6ndcSR44zVFX9d5IUCZ58bd9zZT+a5yfzsHmx32EL3bCbgQXNfFILQ9Vc3EdUH7Vq2AWVCJpnLQaOAph1WnSkxG6pcsQcUO4ECFbtyL31XrCnhE5mTu5aVegcFd+Fo8987f1IyZ0S/kfXITCQXYODC4X+ZE+QXad4DiDk1zWwu1BfHE2RUQrYYvqlQ8nEG450R5maq3UOx5S5N/NrhAHLR79qLUdOF01/47VflqU6Tnplt9ubgzlsboFoK9EpfaFp1/oDvQeBAk4BAAA=
+      Analytics: v2:deflate64:H4sIAAAAAAAAE02PwU7DMAyGn2X3LgNNaOJGKRJHUMcLZK7XmZYksp2hKuq7k6QXTv5l/98n+dE8P5mH3Yv9lT0M0yGBZzTprBampru6j6ghatN5J8oRtOx6FB8ZsOR8GEjJu7UpiiTIdwIEq3b2ow2BcaSMLibldqvKdImK7+xjKHwbwky5nQ3/1a2IB7KbWJxU+ssHgtI6x4sAU9jO4N2VxtroaoxcwR7zLwNyId5wpjvy0t2sczhn59Gk1wgT1o+2tK5r87nozbvD0ZzMafctRHuOTukHTb/NP9JfRrYxAQAA
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreInRegionStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
