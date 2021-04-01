@@ -46,7 +46,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-ReadCapacityAlarm'
       AlarmDescription: 'Alarm when dynamo table has latency on successful requests'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       Namespace: AWS/DynamoDB
       MetricName: SuccessfulRequestLatency
       Dimensions:
@@ -64,7 +64,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-WriteCapacityAlarm'
       AlarmDescription: 'Alarm when dynamo table approaches maximum write capacity limit'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       Namespace: AWS/DynamoDB
       MetricName: AccountProvisionedWriteCapacityUtilization
       Dimensions:
@@ -82,7 +82,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-ReadThrottleAlarm'
       AlarmDescription: 'Alarm when dynamo table experiences read throttle events'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       Namespace: AWS/DynamoDB
       MetricName: ReadThrottleEvents
       Dimensions:
@@ -100,7 +100,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-Dynamo-${TableName}-WriteThrottleAlarm'
       AlarmDescription: 'Alarm when dynamo table experiences write throttle events'
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       Namespace: AWS/DynamoDB
       MetricName: WriteThrottleEvents
       Dimensions:

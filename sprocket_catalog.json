@@ -132,7 +132,7 @@
   {
     "ID": "SprockDynamo",
     "Name":"DynamoDB - Base",
-    "Description":"The Sprocket CCOE approved DynamoDB for security and compliance requirements. Supports passing in the name of the table and the name of the index",
+    "Description":"The Sprocket CCOE DynamoDB includes CloudWatch monitoring and is approved for security and compliance requirements. Supports passing in the name of the table and the name of the index",
     "Owner":"Sprockets Database Team",
     "Distributor":"Spacely Sprockets CCOE",
     "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
@@ -314,7 +314,7 @@
     {
     "ID":"SprockEC2",
     "Name":"EC2 - Base",
-    "Description":"The Sprocket EC2 Server is CCOE approved for security and compliance requirements. Creates a single EC2 instance, installing the packages and files necessary to deploy the Apache web server and PHP.",
+    "Description":"The Sprocket EC2 Server includes CloudWatch monitoring and is CCOE approved for security and compliance requirements. Creates a single EC2 instance, installing the packages and files necessary to deploy the Apache web server and PHP.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
     "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
@@ -388,7 +388,7 @@
     {
     "ID":"SprockPrivateS3",
     "Name":"S3 - Private",
-    "Description":"The Sprocket Private S3 Bucket is CCOE approved for security and compliance requirements. The S3 bucket accepts the name of the bucket as a parameter.",
+    "Description":"The Sprocket Private S3 Bucket includes CloudWatch monitoring and is CCOE approved for security and compliance requirements. The S3 bucket accepts the name of the bucket as a parameter.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
     "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",

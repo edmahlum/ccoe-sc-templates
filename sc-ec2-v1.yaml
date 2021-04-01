@@ -136,7 +136,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-EC2-CPUAlarm'
       AlarmDescription: CPU alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       MetricName: CPUUtilization
       Namespace: AWS/EC2
       Statistic: Average
@@ -154,7 +154,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficInAlarm'
       AlarmDescription: Network in alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       MetricName: NetworkIn
       Namespace: AWS/EC2
       Statistic: Average
@@ -172,7 +172,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficOutAlarm'
       AlarmDescription: Network out alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       MetricName: NetworkOut
       Namespace: AWS/EC2
       Statistic: Average
@@ -190,7 +190,7 @@ Resources:
       AlarmName: !Sub '${ApplicationName}-EC2-StatusCheckFailedAlarm'
       AlarmDescription: Status check failed alarm for the EC2 instance
       AlarmActions:
-        - '[[servicecatalog:provisionedproduct:Catalog_In_Region_Core_Builder:SNSTopicArnDataNotify]]'
+        - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
       MetricName: StatusCheckFailed
       Namespace: AWS/EC2
       Statistic: Average

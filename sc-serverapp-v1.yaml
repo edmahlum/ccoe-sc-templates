@@ -242,7 +242,7 @@ Resources:
           Value: "10005"
   ConfigCloudWatch:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
-    Properties:
+    Properties:     CloudWatch - Config Monitoring
       ProductName: 'CloudWatch - Config Monitoring'
       ProvisioningArtifactName: '1.0'
       PathName: 'IT Infrastructure'
