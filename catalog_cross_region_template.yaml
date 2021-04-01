@@ -1,5 +1,4 @@
-
-   v    Resources:
+Resources:
   SprocketCatalogCoreCrossRegion:
     Type: AWS::ServiceCatalogAppRegistry::Application
     Properties:
