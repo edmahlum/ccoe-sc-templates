@@ -26,7 +26,7 @@
 	"Portfolios": [
   {
     "ID":"serverlessInfra",
-		"Name":"Sprocket CCOE Serverless Infra",
+		"Name":"Serverless Infrastructure",
 		"Description":"Spacely Sprocket CCOE approved serverless infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
@@ -51,30 +51,8 @@
     ]
 	},
 	{
-    "ID":"containersInfra",
-		"Name":"Sprocket CCOE Container Infra",
-		"Description":"Spacely Sprocket CCOE approved container infrastructure building blocks and kits",
-		"Provider":"Spacely Sprockets CCOE",
-    "Principals":[
-      {"ARN":"group/SpacelySprocketsCatalogIAMGroup_containersInfra"},
-      {"ARN":"group/Admin-Users"},
-      {"ARN":"role/admin"}
-      ],
-      "TagOptions":[
-        {"ID":"EnvDev"},
-        {"ID":"EnvStg"},
-        {"ID":"EnvTst"},
-        {"ID":"EnvAlp"},
-        {"ID":"EnvBet"},
-        {"ID":"EnvPrd"},
-        {"ID":"DataHgh"},
-        {"ID":"DataMed"},
-        {"ID":"DataLow"}
-      ]
-	},
-	{
     "ID":"ec2Infra",
-		"Name":"Sprocket CCOE EC2 Infra",
+		"Name":"EC2 Infrastructure",
 		"Description":"Spacely Sprocket CCOE approved EC2 infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
@@ -100,7 +78,7 @@
 	},
 	{
     "ID":"scienceInfra",
-		"Name":"Sprocket CCOE Science Infra",
+		"Name":"Science Infrastructure",
 		"Description":"Spacely Sprocket CCOE approved Science infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
@@ -125,7 +103,7 @@
 	},
 	{
     "ID":"ccoeitInfra",
-		"Name":"Sprocket CCOE IT Infra",
+		"Name":"IT Infrastructure",
 		"Description":"Spacely Sprocket CCOE approved IT infrastructure building blocks and kits",
 		"Provider":"Spacely Sprockets CCOE",
     "Principals":[
@@ -153,7 +131,7 @@
   "Products" : [
   {
     "ID": "SprockDynamo",
-    "Name":"Sprocket DynamoDB",
+    "Name":"DynamoDB - Base",
     "Description":"The Sprocket CCOE approved DynamoDB for security and compliance requirements. Supports passing in the name of the table and the name of the index",
     "Owner":"Sprockets Database Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -192,8 +170,8 @@
       {"Name": "CloudWatchFullAccess"}]
     },
     {
-    "ID":"SprockLambdaPython",
-    "Name":"Sprocket Lambda",
+    "ID":"LambdaPython",
+    "Name":"Lambda - Python",
     "Description":"The Sprocket CCOE approved Lambda using Python for security and compliance requirements. Pass in the GitHub location of your Serverless code.",
     "Owner":"Sprockets Compute Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -229,7 +207,7 @@
     },
     {
     "ID":"SprockAPIGWLambda",
-    "Name":"Sprocket API Gateway for Lambda",
+    "Name":"API Gateway - Lambda",
     "Description":"The Sprocket CCOE approved Lambda API Gateway for security and compliance requirements. The API Gateway connects to a Sprocket Lambda and provides an addressable URL",
     "Owner":"Sprockets Severless Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -263,7 +241,7 @@
       {"Name":"AWSLambda_FullAccess"}]
     },
     {
-    "ID":"SprockEMR",
+    "ID":"EMR - Base",
     "Name":"Sprocket Elastic Map Reduce",
     "Description":"The Sprocket EMR CCOE approved for security and compliance requirements. The EMR cluster accepts the cluster name and key as parameters and runs on an mx3 xlarge ec2.",
     "Owner":"Sprockets Compute Team",
@@ -299,7 +277,7 @@
     },
     {
     "ID":"SprockIAMRoleSagemaker",
-    "Name":"Sprocket IAM Role for Sagemaker",
+    "Name":"Sagemaker - IAM Role",
     "Description":"The Sprocket Sagemaker IAM role is CCOE approved for security and compliance requirements. The IAM role grants the minimum necessary permissions for executing Sagemaker.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -335,7 +313,7 @@
     },
     {
     "ID":"SprockEC2",
-    "Name":"Sprocket EC2 Server",
+    "Name":"EC2 - Base",
     "Description":"The Sprocket EC2 Server is CCOE approved for security and compliance requirements. Creates a single EC2 instance, installing the packages and files necessary to deploy the Apache web server and PHP.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -374,7 +352,7 @@
     },
     {
     "ID":"SprockRDS",
-    "Name":"Sprocket RDS",
+    "Name":"RDS - MySql",
     "Description":"The Sprocket RDS database is CCOE approved for security and compliance requirements. The RDS database accepts username and password as parameters.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -409,7 +387,7 @@
     },
     {
     "ID":"SprockPrivateS3",
-    "Name":"Sprocket Private S3 Bucket",
+    "Name":"S3 - Private",
     "Description":"The Sprocket Private S3 Bucket is CCOE approved for security and compliance requirements. The S3 bucket accepts the name of the bucket as a parameter.",
     "Owner":"Sprockets IT Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -453,7 +431,7 @@
     },
     {
     "ID":"SprockSageMaker",
-    "Name":"Sprocket SageMaker Notebook",
+    "Name":"SageMaker Notebook",
     "Description":"The Sprocket Sagemaker Notebook is CCOE approved for security and compliance requirements. An Amazon SageMaker notebook instance is a machine learning (ML) compute instance running the Jupyter Notebook App. SageMaker manages creating the instance and related resources. Use Jupyter notebooks in your notebook instance to prepare and process data, write code to train models, deploy models to SageMaker hosting, and test or validate your models.",
     "Owner":"Sprockets Science Team",
     "Distributor":"Spacely Sprockets CCOE",
@@ -488,7 +466,7 @@
     },
     {
       "ID":"SprockConfigEC2Monitoring",
-      "Name":"Sprocket Config EC2 Monitoring",
+      "Name":"EC2 - Config Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using EC2 to provide the necessary config monitoring",
       "Owner":"Sprockets CCOE Team",
       "Distributor":"Spacely Sprockets CCOE",
@@ -515,7 +493,7 @@
         ]
     },
     {
-      "ID": "SprockConfigDynamoMonitoring",
+      "ID": "DynamoDB - Config Monitoring",
       "Name": "Sprocket Config Dynamo Monitoring",
       "Description": "The Sprocket Config Rules that must be installed in every account using Dynamo to provide the necessary config monitoring",
       "Owner": "Sprockets CCOE Team",
@@ -546,7 +524,7 @@
         ]
       },
       {
-      "ID":"SprockConfigS3Monitoring",
+      "ID":"S3 - Config Monitoring",
       "Name":"Sprocket Config S3 Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using S3 to provide the necessary config monitoring",
       "Owner":"Sprockets CCOE Team",
@@ -605,7 +583,7 @@
     },
     {
       "ID":"SprockConfigCWMonitoring",
-      "Name":"Sprocket Config CloudWatch Monitoring",
+      "Name":"CloudWatch - Config Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using CloudWatch to provide the necessary config monitoring",
       "Owner":"Sprockets CCOE Team",
       "Distributor":"Spacely Sprockets CCOE",

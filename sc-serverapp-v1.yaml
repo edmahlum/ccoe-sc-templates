@@ -93,9 +93,9 @@ Resources:
   Compute:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket EC2 Server
+      ProductName: 'EC2 - Base'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE EC2 Infra'
+      PathName: 'EC2 Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -126,9 +126,9 @@ Resources:
   FileStorage:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket Private S3 Bucket
+      ProductName: 'S3 - Private'
       ProvisioningArtifactName: 1.0
-      PathName: 'Sprocket CCOE EC2 Infra'
+      PathName: 'EC2 Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -151,9 +151,9 @@ Resources:
   Database:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket DynamoDB
+      ProductName: 'DynamoDB - Base'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE Serverless Infra'
+      PathName: 'Serverless Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -180,9 +180,9 @@ Resources:
   ConfigEC2:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket Config EC2 Monitoring
+      ProductName: 'EC2 - Config Monitoring'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE IT Infra'
+      PathName: 'IT Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -201,9 +201,9 @@ Resources:
   ConfigS3:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket Config S3 Monitoring
+      ProductName: 'S3 - Config Monitoring'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE IT Infra'
+      PathName: 'IT Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -222,9 +222,9 @@ Resources:
   ConfigDynamo:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket Config Dynamo Monitoring
+      ProductName: 'DynamoDB - Config Monitoring'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE IT Infra'
+      PathName: 'IT Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
@@ -243,9 +243,9 @@ Resources:
   ConfigCloudWatch:
     Type: AWS::ServiceCatalog::CloudFormationProvisionedProduct
     Properties:
-      ProductName: Sprocket Config CloudWatch Monitoring
+      ProductName: 'CloudWatch - Config Monitoring'
       ProvisioningArtifactName: '1.0'
-      PathName: 'Sprocket CCOE IT Infra'
+      PathName: 'IT Infrastructure'
       ProvisioningParameters:
         -
           Key: ApplicationName
