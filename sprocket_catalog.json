@@ -170,7 +170,7 @@
       {"Name": "CloudWatchFullAccess"}]
     },
     {
-    "ID":"LambdaPython",
+    "ID":"SprockLambdaPython",
     "Name":"Lambda - Python",
     "Description":"The Sprocket CCOE approved Lambda using Python for security and compliance requirements. Pass in the GitHub location of your Serverless code.",
     "Owner":"Sprockets Compute Team",
@@ -241,8 +241,8 @@
       {"Name":"AWSLambda_FullAccess"}]
     },
     {
-    "ID":"EMR - Base",
-    "Name":"Sprocket Elastic Map Reduce",
+    "ID":"SprockEMR",
+    "Name":"EMR - Base",
     "Description":"The Sprocket EMR CCOE approved for security and compliance requirements. The EMR cluster accepts the cluster name and key as parameters and runs on an mx3 xlarge ec2.",
     "Owner":"Sprockets Compute Team",
     "Distributor":"Spacely Sprockets CCOE",
