@@ -1,5 +1,5 @@
 Resources:
-  SprocketAttributeGroupScienceOrg:
+  SprocketAttributeGroupOrgScience:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -7,13 +7,13 @@ Resources:
         Active: "1"
         ParentDept: Research
         ContactAlias: science_team@spacely.com
-      Name: Science_Org
+      Name: Org.Science
       Description: Organization metadata for the Sprockets science team
       Tags:
         Dept: Dept10005
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupScience_Org
-  SprocketAttributeGroupRoboticsOrg:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupOrg.Science
+  SprocketAttributeGroupOrgRobotics:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -21,41 +21,13 @@ Resources:
         Active: "1"
         ParentDept: Research
         ContactAlias: robotics_team@spacely.com
-      Name: Robotics_Org
+      Name: Org.Robotics
       Description: Organization metadata for the Sprockets robotics team
       Tags:
         Dept: Dept10006
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupRobotics_Org
-  SprocketAttributeGroupColonyPlacementOrg:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        Department: "20002"
-        Active: "1"
-        ParentDept: Product
-        ContactAlias: colony_placement_team@spacely.com
-      Name: ColonyPlacement_Org
-      Description: Organization metadata for the Sprockets conoloy placement team
-      Tags:
-        Dept: Dept20002
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupColonyPlacement_Org
-  SprocketAttributeGroupColonyServicesOrg:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        Department: "20004"
-        Active: "1"
-        ParentDept: Product
-        ContactAlias: colony_services_team@spacely.com
-      Name: ColonyServices_Org
-      Description: Organization metadata for the Sprockets conoloy services team
-      Tags:
-        Dept: Dept20004
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupColonyServices_Org
-  SprocketAttributeGroupMarketingOrg:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupOrg.Robotics
+  SprocketAttributeGroupOrgMarketing:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -63,13 +35,13 @@ Resources:
         Active: "1"
         ParentDept: Marketing
         ContactAlias: colony_services_team@spacely.com
-      Name: Marketing_Org
+      Name: Org.Marketing
       Description: Organization metadata for the Sprockets marketing micro sites team for colonies
       Tags:
         Dept: Dept80008
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupMarketing_Org
-  SprocketAttributeGroupCallCenterOrg:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupOrg.Marketing
+  SprocketAttributeGroupOrgCallCenter:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -77,27 +49,13 @@ Resources:
         Active: "1"
         ParentDept: Marketing
         ContactAlias: colony_services_team@spacely.com
-      Name: CallCenter_Org
+      Name: Org.CallCenter
       Description: Organization metadata for the Sprockets marketing call center team for colonies
       Tags:
         Dept: Dept80001
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupCallCenter_Org
-  SprocketAttributeGroupColonyLogisticsOrg:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        Department: "10006"
-        Active: "1"
-        ParentDept: Corp
-        ContactAlias: colony_services_team@spacely.com
-      Name: ColonyLogistics_Org
-      Description: Organization metadata for the Sprockets colony logistics team for colonies
-      Tags:
-        Dept: Dept10006
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupColonyLogistics_Org
-  SprocketAttributeGroupITOrg:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupOrg.CallCenter
+  SprocketAttributeGroupOrgIT:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -105,65 +63,13 @@ Resources:
         Active: "1"
         ParentDept: Corp
         ContactAlias: colony_services_team@spacely.com
-      Name: IT_Org
+      Name: Org.IT
       Description: Organization metadata for the Sprockets IT team
       Tags:
         Dept: Dept10009
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupIT_Org
-  SprocketAttributeGroupITInfraApplication:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        AppType: Processing
-        SLA: 0.1h
-        Runtime: Java-12
-        Support:
-          Phone: XXX-XXX-XXXX
-          Email: support@app.com
-        Compliance:
-          - SOC-1
-          - PCI
-      Name: ITInfraApplication
-      Description: Application metadata for the Sprockets IT Apps
-      Tags:
-        Dept: Dept10009
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupITInfraApplication
-  SprocketAttributeGroupAnalyticsApplication:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        AppType: DataAnalytics
-        SLA: 2.0h
-        Runtime: Python
-        Support:
-          Phone: XXX-XXX-XXXX
-          Email: support@app.com
-        Compliance:
-          - SOC-1
-          - PCI
-      Name: AnalyticsApplication
-      Description: Application metadata for the Sprockets Analytics Apps
-      Tags:
-        Dept: Dept10009
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupAnalyticsApplication
-  SprocketAttributeGroupITBudget:
-    Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
-    Properties:
-      Attributes:
-        BudgetType: Allocation
-        Capital: "No"
-        Reporting: Weekly
-        Owner: IT
-      Name: ITBudget
-      Description: Application metadata for IT Budget Attribution
-      Tags:
-        Dept: Dept10009
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupITBudget
-  SprocketAttributeGroupPartnerBudget:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupOrg.IT
+  SprocketAttributeGroupApplicationMarketingAnalyticsBudget:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -180,19 +86,22 @@ Resources:
           Friday: $1.10
           Saturday: $1.85
           Sunday: $1.20
-      Name: PartnerBudget
+      Name: Application.MarketingAnalytics.Budget
       Description: An attribute group that describes the budget for a particular application
       Tags:
         Dept: Dept10009
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupPartnerBudget
-  SprocketAttributeGroupMarketingAnalysisApplication:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupApplication.MarketingAnalytics.Budget
+  SprocketAttributeGroupApplicationMarketingAnalyticsCore:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
-        Customer_ApplicationName: MarketingAnalysisApplication
+        Customer_ApplicationName: MarketingAnalysticsApplication
         Customer_ApplicationID: "991538"
+        AppType: Analytics
         AppCriticality: High
+        Runtime: Java-12
+        SLA: 0.1h
         AppRTO_minutes: "5"
         AppLOB: Galactic_Marketing
         CostCenter: "42"
@@ -206,13 +115,13 @@ Resources:
           SecondaryPhone: 312-555-1212
           EscalationVP: Trillian
           EscalationPhone: 515-555-1212
-      Name: MarketingAnalysisApplication
+      Name: Application.MarketingAnalytics.Core
       Description: The attributes that describes the marketing analysis application
       Tags:
         Dept: Dept10009
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupMarketingAnalysisApplication
-  SprocketAttributeGroupMarketingAnalysisApplicationComponents:
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupApplication.MarketingAnalytics.Core
+  SprocketAttributeGroupApplicationMarketingAnalyticsComponents:
     Type: AWS::ServiceCatalogAppRegistry::AttributeGroup
     Properties:
       Attributes:
@@ -257,12 +166,12 @@ Resources:
           Telecom: "Yes"
           Other: "Yes"
           InternalServices: "Yes"
-      Name: MarketingAnalysisApplicationComponents
+      Name: Application.MarketingAnalytics.Components
       Description: MarketingAnalysisApplicationAttributes
       Tags:
         Dept: Dept10009
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupMarketingAnalysisApplicationComponents
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupApplication.MarketingAnalytics.Components
   SprocketDefaultApplication:
     Type: AWS::ServiceCatalogAppRegistry::Application
     Properties:
