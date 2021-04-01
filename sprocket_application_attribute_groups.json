@@ -1,6 +1,6 @@
 {
   "AttributeGroups": [
-    { "Name":"Org-Science",
+    { "Name":"Org_Science",
       "Description":"Organization metadata for the Sprockets science team",
       "Tags":{"Dept":"Dept10005"},
       "Attributes":
@@ -9,7 +9,7 @@
         "ParentDept":"Research",
         "ContactAlias":"science_team@spacely.com"}
     },
-    { "Name":"Org-Robotics",
+    { "Name":"Org_Robotics",
       "Description":"Organization metadata for the Sprockets robotics team",
       "Tags":{"Dept":"Dept10006"},
       "Attributes":
@@ -17,7 +17,7 @@
         "Active":"1","ParentDept":"Research",
         "ContactAlias":"robotics_team@spacely.com"}
     },
-    { "Name":"Org-Marketing",
+    { "Name":"Org_Marketing",
       "Description":"Organization metadata for the Sprockets marketing micro sites team for colonies",
       "Tags":{"Dept":"Dept80008"},
       "Attributes":
@@ -26,7 +26,7 @@
         "ParentDept":"Marketing",
         "ContactAlias":"colony_services_team@spacely.com"}
     },
-    { "Name":"Org-CallCenter",
+    { "Name":"Org_CallCenter",
       "Description":"Organization metadata for the Sprockets marketing call center team for colonies",
       "Tags":{"Dept":"Dept80001"},
       "Attributes":
@@ -35,7 +35,7 @@
         "ParentDept":"Marketing",
         "ContactAlias":"colony_services_team@spacely.com"}
     },
-    { "Name":"Org-IT",
+    { "Name":"Org_IT",
       "Description":"Organization metadata for the Sprockets IT team",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
@@ -44,7 +44,7 @@
         "ParentDept":"Corp",
         "ContactAlias":"colony_services_team@spacely.com"}
     },
-    { "Name":"Application-MarketingAnalytics-Budget",
+    { "Name":"Application_MarketingAnalytics_Budget",
       "Description":"An attribute group that describes the budget for a particular application",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
@@ -63,7 +63,7 @@
           "Sunday":"$1.20"}
        }
       },
-    { "Name":"Application-MarketingAnalytics-Core",
+    { "Name":"Application_MarketingAnalytics_Core",
       "Description":"The attributes that describes the marketing analysis application",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
@@ -88,7 +88,7 @@
           "EscalationPhone": "515-555-1212"}
         }
     },
-    { "Name":"Application-MarketingAnalytics-Components",
+    { "Name":"Application_MarketingAnalytics_Components",
       "Description":"MarketingAnalysisApplicationAttributes",
       "Tags":{"Dept":"Dept10009"},
       "Attributes":
