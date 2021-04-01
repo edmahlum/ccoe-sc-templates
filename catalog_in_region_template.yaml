@@ -263,18 +263,17 @@ Resources:
         Dept: Dept10009
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketAttributeGroupMarketingAnalysisApplicationComponents
-  SprocketCatalogCoreInRegion:
+  SprocketDefaultApplication:
     Type: AWS::ServiceCatalogAppRegistry::Application
     Properties:
-      Name: SprocketCatalogCoreInRegion
-      Description: A cdk application that the creates the required SNS Topics, Attribute Groups, and Config recorders Spacely Sprocket Service Catalog based on a JSON input file.
+      Name: DefaultApplication
+      Description: A default application for the account and region.
     Metadata:
-      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketCatalogCoreInRegion
+      aws:cdk:path: SprocketsCatalogCoreInRegionStack/SprocketDefaultApplication
   SprocketStackAppAssociation:
     Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
     Properties:
-      Application:
-        Ref: SprocketCatalogCoreInRegion
+      Application: CatalogInstaller
       Resource:
         Ref: AWS::StackId
       ResourceType: CFN_STACK

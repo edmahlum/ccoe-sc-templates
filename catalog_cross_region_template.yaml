@@ -1,16 +1,8 @@
 Resources:
-  SprocketCatalogCoreCrossRegion:
-    Type: AWS::ServiceCatalogAppRegistry::Application
-    Properties:
-      Name: SprocketCatalogCoreCrossRegion
-      Description: A cdk application that the creates the required IAM roles, and IAM groups needed for the Spacely Sprocket Service Catalog based on a JSON input file.
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprocketCatalogCoreCrossRegion
   SprocketStackAppAssociation:
     Type: AWS::ServiceCatalogAppRegistry::ResourceAssociation
     Properties:
-      Application:
-        Ref: SprocketCatalogCoreCrossRegion
+      Application: CatalogInstaller
       Resource:
         Ref: AWS::StackId
       ResourceType: CFN_STACK
@@ -978,7 +970,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAAE02MwQ6CMBBEv4V7KSGaEG8SDh4l+AVNqboC3abdakjTf7cFD55mdmfm1fx05HVxFh9XynGqgkSreLiRkBPr7vrqyXhiHWpH1kvKv0E59Faq7FMwAgHqyDIiOGXfIJUUJGZ8CGOsekCarjykdmvMDClL/X9Q6xxKEDsGxMLDgPOG37THNFrz+XMXi97kezMxRtav9ERdHXjDm+LlAErrNcGi+LDrFywVS3ToAAAA
+      Analytics: v2:deflate64:H4sIAAAAAAAAE02MQQ6CMBBFz8K+lBBNiDsNC5cSPEEzVB2BTtNONaTp3aXowtV/fybv1/Kwl3VxVG9fwjBWEchpGa+sYBTtzVwC28CiJePZBeB867Wn4EBnXh8DMpJJIk9Er90LQYNiNdFdWev0HVd1kX/iyXsCVFkTqGYZe5q2tS07mhCWXH90dhRs7huklES38INMtZONbIqnRyxdMIyzlv03PxYfNrDXAAAA
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
