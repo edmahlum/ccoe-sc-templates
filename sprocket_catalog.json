@@ -494,7 +494,7 @@
     },
     {
       "ID": "SprockConfigDynamoMonitoring",
-      "Name": "Dynamo - Config Monitoring",
+      "Name": "DynamoDB - Config Monitoring",
       "Description": "The Sprocket Config Rules that must be installed in every account using Dynamo to provide the necessary config monitoring",
       "Owner": "Sprockets CCOE Team",
       "Distributor": "Spacely Sprockets CCOE",
@@ -555,7 +555,7 @@
     {
       "ID":"SprockServerApp",
       "Name":"Sprocket Standard Server Application",
-      "Description":"The Sprocket standard server application that includes compute, file storage, and a no sql database.",
+      "Description":"The Sprocket standard server application that includes compute, file storage, no sql database, CloudWatch monitoring and config rules.",
       "Owner":"Sprockets CCOE Team",
       "Distributor":"Spacely Sprockets CCOE",
       "SupportDescription":"For support please use the Spacely Sprocket CCOE slack channel 8AM - 5PM earth time or for urgent issues refer to spacely-on-call",
