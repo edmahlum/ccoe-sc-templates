@@ -493,8 +493,8 @@
         ]
     },
     {
-      "ID": "DynamoDB - Config Monitoring",
-      "Name": "Sprocket Config Dynamo Monitoring",
+      "ID": "SprockConfigDynamoMonitoring",
+      "Name": "Dynamo - Config Monitoring",
       "Description": "The Sprocket Config Rules that must be installed in every account using Dynamo to provide the necessary config monitoring",
       "Owner": "Sprockets CCOE Team",
       "Distributor": "Spacely Sprockets CCOE",
@@ -524,8 +524,8 @@
         ]
       },
       {
-      "ID":"S3 - Config Monitoring",
-      "Name":"Sprocket Config S3 Monitoring",
+      "ID":"SprockConfigS3Monitoring",
+      "Name":"S3 - Config Monitoring",
       "Description":"The Sprocket Config Rules that must be installed in every account using S3 to provide the necessary config monitoring",
       "Owner":"Sprockets CCOE Team",
       "Distributor":"Spacely Sprockets CCOE",
