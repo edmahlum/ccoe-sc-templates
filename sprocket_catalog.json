@@ -148,9 +148,6 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [
-          {"Topic": "DataNotify"},
-          {"Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockDynamoLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}
     ],
@@ -187,8 +184,6 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockLambdaPythonLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -223,8 +218,6 @@
     "Portfolios":[
       {"PortfolioID":"serverlessInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockAPIGWLambdaLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -258,8 +251,6 @@
     "Portfolios":[
       {"PortfolioID":"scienceInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEMRLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -293,8 +284,6 @@
     "Portfolios":[
       {"PortfolioID":"ccoeitInfra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra"}],
@@ -330,8 +319,6 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockEC2LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -368,8 +355,6 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockRDSLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -404,14 +389,10 @@
     "Portfolios":[
       {"PortfolioID":"ec2Infra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]},
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockPrivateS3LaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
@@ -447,8 +428,6 @@
     "Portfolios":[
       {"PortfolioID":"scienceInfra", "Constraints":[
         {"Type":"ResourceUpdateConstraint","Parameters":"ALLOWED"},
-        {"Type":"NotificationConstraint","Parameters": [{
-          "Topic": "CCOENotify"}]},
         {"Type":"LaunchRoleConstraint","Parameters":"SprockSageMakerLaunchRole"},
         {"Type":"TemplateConstraint","Parameters":"{\"Rules\" : {\"Rule01\" : {}}}"}]}],
       "TagOptions":[
