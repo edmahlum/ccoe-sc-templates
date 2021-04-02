@@ -263,66 +263,6 @@ Resources:
         - Ref: SprockEMRlaunchrole2DD454A9
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockEMRlaunch_role/DefaultPolicy/Resource
-  SprockIAMRoleSagemakerlaunchroleCBA29B4D:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Action: sts:AssumeRole
-            Effect: Allow
-            Principal:
-              Service: servicecatalog.amazonaws.com
-        Version: "2012-10-17"
-      ManagedPolicyArns:
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogEndUserFullAccess
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AWSCloudFormationFullAccess
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AmazonS3FullAccess
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AmazonSNSFullAccess
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/AWSLambda_FullAccess
-      RoleName: SpacelySprocketsCatalogLaunchRole_SprockIAMRoleSagemaker
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockIAMRoleSagemakerlaunch_role/Resource
-  SprockIAMRoleSagemakerlaunchroleDefaultPolicyEB6B0009:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyDocument:
-        Statement:
-          - Action:
-              - servicecatalog:GetProvisionedProductOutputs
-              - servicecatalog:ListRecordHistory
-            Effect: Allow
-            Resource: "*"
-        Version: "2012-10-17"
-      PolicyName: SprockIAMRoleSagemakerlaunchroleDefaultPolicyEB6B0009
-      Roles:
-        - Ref: SprockIAMRoleSagemakerlaunchroleCBA29B4D
-    Metadata:
-      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/SprockIAMRoleSagemakerlaunch_role/DefaultPolicy/Resource
   SprockEC2launchrole43AC249A:
     Type: AWS::IAM::Role
     Properties:
@@ -988,10 +928,18 @@ Resources:
       RoleName: SpacelySprocketsEC2CloudWatchRole
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/IAMEC2ServiceRole/Resource
+  IAMEC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - Ref: IAMEC2ServiceRoleF7BA87DB
+      InstanceProfileName: SpacelySprocketsEC2CloudWatchRole
+    Metadata:
+      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/IAMEC2InstanceProfile
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAAE02MQQ6CMBBFz8K+lBBNiDsNC5cSPEEzVB2BTtNONaTp3aXowtV/fybv1/Kwl3VxVG9fwjBWEchpGa+sYBTtzVwC28CiJePZBeB867Wn4EBnXh8DMpJJIk9Er90LQYNiNdFdWev0HVd1kX/iyXsCVFkTqGYZe5q2tS07mhCWXH90dhRs7huklES38INMtZONbIqnRyxdMIyzlv03PxYfNrDXAAAA
+      Analytics: v2:deflate64:H4sIAAAAAAAAE02OwQrCMBBEv6X3NKUoiDfFg3iy1C8I66qrbbYkG6WE/LtNFfE0b3aZYWq9Xuq62JiXL+H8qCKwQx1PYuChdhd7DDIEUTu2XlwAybcWPQcHmHl6nEmIbVK5Inp0TwIEI6bjqxkGh1eaoqP+C269ZyCTY4pMr2PL3dw2a8MdwZjtl/aOw5D9Dw7TGmMBG8cX6jClpJpRbmyrhV7pVXH3RKULVqhH3X70DTFG2Z3qAAAA
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
@@ -1028,14 +976,6 @@ Outputs:
         - Arn
     Export:
       Name: LaunchRoleSprockEMR
-  LaunchRoleSprockIAMRoleSagemaker:
-    Description: The ARN of the Service Catalog launch role for the product SprockIAMRoleSagemaker
-    Value:
-      Fn::GetAtt:
-        - SprockIAMRoleSagemakerlaunchroleCBA29B4D
-        - Arn
-    Export:
-      Name: LaunchRoleSprockIAMRoleSagemaker
   LaunchRoleSprockEC2:
     Description: The ARN of the Service Catalog launch role for the product SprockEC2
     Value:
