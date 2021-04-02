@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: S3 Bucket Template
+Description: S3 Private Bucket
 Parameters:
   MyBucketName:
     Type: String

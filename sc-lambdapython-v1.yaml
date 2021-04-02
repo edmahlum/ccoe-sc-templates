@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Lambda CCOE compliant python serverless function.'
+Description: Lambda Python
 Parameters:
   Handler:
     Type: String

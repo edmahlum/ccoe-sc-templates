@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'RDS CCOE compliant database.'
+Description: RDS MySQL Database
 Parameters:
   RDSUserName:
     Type: String

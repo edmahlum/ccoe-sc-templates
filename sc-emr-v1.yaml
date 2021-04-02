@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: EMR_Launch Template
+Description: EMR Server
 Parameters:
   ClusterKeyName:
     Type: String

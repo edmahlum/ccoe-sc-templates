@@ -1,5 +1,6 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
+Description: EC2 Server
 Transform: AWS::ServiceCatalog
 Parameters:
   KeyName:
@@ -106,7 +107,7 @@ Resources:
           - Arch
       InstanceType:
         Ref: InstanceType
-      IamInstanceProfile: SprocketTestEC2Role
+      IamInstanceProfile: SpacelySprocketsEC2CloudWatchRole
       SecurityGroups:
       - Ref: WebServerSecurityGroup
       KeyName:

@@ -4,9 +4,8 @@ Parameters:
   DeploymentName:
     Description: Name of the SageMaker deployment to launch this notebook to
     Type: String
-  IAMRoleArn:
-      Description: The ARN of the IAM role
-      Type: String
+  IAMPolicyResource:
+    Type: String
   InstanceType:
     Description: The type of ML compute instance to launch for the notebook
     Type: String
@@ -31,10 +30,29 @@ Resources:
       ResourceType: CFN_STACK
       Resource:
         Ref: AWS::StackId
+  NotebookExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: [lambda.amazonaws.com]
+            Action: ['sts:AssumeRole']
+      Path: /
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: ['logs:*']
+                Resource: !Ref IAMPolicyResource
   NotebookInstance:
     Type: "AWS::SageMaker::NotebookInstance"
     Properties:
       DirectInternetAccess: Enabled
       NotebookInstanceName: !Sub '${AWS::StackName}'
       InstanceType: !Ref InstanceType
-      RoleArn: !Ref IAMRoleArn
+      RoleArn: !Ref NotebookExecutionRole

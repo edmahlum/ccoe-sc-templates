@@ -955,6 +955,39 @@ Resources:
       RoleName: SpacelySprocketsConfigRole
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/IAMConfigServiceRole/Resource
+  IAMEC2ServiceRoleF7BA87DB:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                Fn::Join:
+                  - ""
+                  - - ec2.
+                    - Ref: AWS::URLSuffix
+        Version: "2012-10-17"
+      ManagedPolicyArns:
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/AmazonEC2FullAccess
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/CloudWatchAgentAdminPolicy
+        - Fn::Join:
+            - ""
+            - - "arn:"
+              - Ref: AWS::Partition
+              - :iam::aws:policy/CloudWatchActionsEC2Access
+      RoleName: SpacelySprocketsEC2CloudWatchRole
+    Metadata:
+      aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/IAMEC2ServiceRole/Resource
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:

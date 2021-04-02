@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'DynamoDB CCOE compliant database.'
+Description: API Gateway for Lambda
 Parameters:
   APIGatewayName:
     Type: String

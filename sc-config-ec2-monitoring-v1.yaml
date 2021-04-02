@@ -1,5 +1,6 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
+Description: EC2 Config Rules
 Parameters:
   ApplicationName:
     Type: String

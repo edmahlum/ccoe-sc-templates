@@ -1,6 +1,6 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Config rules that will ensure we have CloudWatch alarms configured correctly
+Description: CloudWatch Config Rules
 Parameters:
   ApplicationName:
     Type: String
