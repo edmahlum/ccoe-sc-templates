@@ -101,7 +101,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
         -
           Key: InstanceType
           Value:
@@ -134,7 +134,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
         -
           Key: MyBucketName
           Value:
@@ -159,7 +159,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
         -
           Key: IndexName
           Value:
@@ -188,7 +188,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
       Tags:
         -
           Key: DataSecurityClassification
@@ -209,7 +209,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
       Tags:
         -
           Key: DataSecurityClassification
@@ -230,7 +230,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
       Tags:
         -
           Key: DataSecurityClassification
@@ -251,7 +251,7 @@ Resources:
         -
           Key: ApplicationName
           Value:
-            Ref: ApplicationName
+            Ref: ApplicationRegistration
       Tags:
         -
           Key: DataSecurityClassification
