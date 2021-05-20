@@ -61,7 +61,7 @@ Resources:
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
         - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:2#CATEGORY=Security'
-        TreatMissingData: "notBreaching"
+      TreatMissingData: Breaching
   CloudWatchAlarmNumberofObjects:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
@@ -82,7 +82,7 @@ Resources:
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
         - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:4#CATEGORY=Cost'
-      TreatMissingData: notBreaching
+      TreatMissingData: Breaching
   CloudWatchAlarmBucketSize:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
@@ -103,7 +103,7 @@ Resources:
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
         - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:3#CATEGORY=Cost'
-      TreatMissingData: breaching
+      TreatMissingData: Breaching
 Outputs:
   BucketName:
     Value: !Ref S3Bucket
