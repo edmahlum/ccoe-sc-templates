@@ -60,7 +60,8 @@ Resources:
       ComparisonOperator: "GreaterThanOrEqualToThreshold"
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
-      TreatMissingData: "notBreaching"
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:2#CATEGORY=Security'
+        TreatMissingData: "notBreaching"
   CloudWatchAlarmNumberofObjects:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
@@ -80,6 +81,7 @@ Resources:
       ComparisonOperator: "GreaterThanOrEqualToThreshold"
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:4#CATEGORY=Cost'
       TreatMissingData: notBreaching
   CloudWatchAlarmBucketSize:
     Type: "AWS::CloudWatch::Alarm"
@@ -100,6 +102,7 @@ Resources:
       ComparisonOperator: "GreaterThanOrEqualToThreshold"
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:3#CATEGORY=Cost'
       TreatMissingData: breaching
 Outputs:
   BucketName:

@@ -138,6 +138,7 @@ Resources:
       AlarmDescription: CPU alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:2#CATEGORY=Availability'
       MetricName: CPUUtilization
       Namespace: AWS/EC2
       Statistic: Average
@@ -156,6 +157,7 @@ Resources:
       AlarmDescription: Network in alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:2#CATEGORY=Availability'
       MetricName: NetworkIn
       Namespace: AWS/EC2
       Statistic: Average
@@ -174,6 +176,7 @@ Resources:
       AlarmDescription: Network out alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:3#CATEGORY=Performance'
       MetricName: NetworkOut
       Namespace: AWS/EC2
       Statistic: Average
@@ -192,6 +195,7 @@ Resources:
       AlarmDescription: Status check failed alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
+        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:1#CATEGORY=Availability'
       MetricName: StatusCheckFailed
       Namespace: AWS/EC2
       Statistic: Average
