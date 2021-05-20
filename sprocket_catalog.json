@@ -142,7 +142,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-dynamodb-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b275b1458f57f2ba803178fa6307caaffd01b996/sc-dynamodb-v1.yaml"
         }
     ],
     "Portfolios":[
@@ -279,7 +279,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-ec2-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b275b1458f57f2ba803178fa6307caaffd01b996/sc-ec2-v1.yaml"
       }
     ],
     "Portfolios":[
@@ -349,7 +349,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-s3-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b275b1458f57f2ba803178fa6307caaffd01b996/sc-s3-v1.yaml"
       }
     ],
     "Portfolios":[
