@@ -153,11 +153,10 @@ Resources:
   NetworkInAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficInAlarm'
+      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficInAlarms'
       AlarmDescription: Network in alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
-        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:2#CATEGORY=Availability'
       MetricName: NetworkIn
       Namespace: AWS/EC2
       Statistic: Average
@@ -172,11 +171,10 @@ Resources:
   NetworkOutAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficOutAlarm'
+      AlarmName: !Sub '${ApplicationName}-EC2-NetworkTrafficOutAlarms'
       AlarmDescription: Network out alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
-        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:3#CATEGORY=Performance'
       MetricName: NetworkOut
       Namespace: AWS/EC2
       Statistic: Average
@@ -191,11 +189,10 @@ Resources:
   StatusCheckFailedAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub '${ApplicationName}-EC2-StatusCheckFailedAlarm'
+      AlarmName: !Sub '${ApplicationName}-EC2-StatusCheckFailedAlarms'
       AlarmDescription: Status check failed alarm for the EC2 instance
       AlarmActions:
         - !Sub 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:DataNotify'
-        - !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:opsitem:1#CATEGORY=Availability'
       MetricName: StatusCheckFailed
       Namespace: AWS/EC2
       Statistic: Average
