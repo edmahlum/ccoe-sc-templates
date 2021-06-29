@@ -179,7 +179,7 @@
       {
         "VersionName":"1.0",
         "VersionDescription":"Initial version",
-        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-lambdapython-v1.yaml"
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
@@ -213,7 +213,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-apigateway-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-apigateway-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfra","Constraints":[
@@ -246,7 +246,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-emr-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-emr-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"scienceInfra","Constraints":[
@@ -279,7 +279,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b275b1458f57f2ba803178fa6307caaffd01b996/sc-ec2-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/7b894d7757291fa18725dfae4f07a35ad3bf1172/sc-ec2-v1.yaml"
       }
     ],
     "Portfolios":[
@@ -316,7 +316,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-rds-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-rds-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"ec2Infra","Constraints":[
@@ -349,7 +349,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/b275b1458f57f2ba803178fa6307caaffd01b996/sc-s3-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/7b894d7757291fa18725dfae4f07a35ad3bf1172/sc-s3-v1.yaml"
       }
     ],
     "Portfolios":[
@@ -389,7 +389,7 @@
       {
       "VersionName":"1.0",
       "VersionDescription":"Initial version",
-      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-sagemaker-v1.yaml"
+      "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-sagemaker-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"scienceInfra", "Constraints":[
@@ -422,7 +422,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-ec2-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-config-ec2-monitoring-v1.yaml"
         }],
       "Portfolios":[
         {"PortfolioID":"ccoeitInfra", "Constraints":[
@@ -450,7 +450,7 @@
         {
           "VersionName": "1.0",
           "VersionDescription": "Initial version",
-          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-dynamo-monitoring-v1.yaml"
+          "VersionURL": "https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-config-dynamo-monitoring-v1.yaml"
         }
       ],
       "Portfolios": [
@@ -481,7 +481,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-s3-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-config-s3-monitoring-v1.yaml"
         }
       ],
       "Portfolios":[
@@ -510,7 +510,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-serverapp-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/e2a329d568d66317469205fce698f39dd19249e5/sc-serverapp-v1.yaml"
         }
       ],
       "Portfolios":[
@@ -539,7 +539,7 @@
         {
           "VersionName":"1.0",
           "VersionDescription":"Initial version",
-          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/main/sc-config-cloudwatch-monitoring-v1.yaml"
+          "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-config-cloudwatch-monitoring-v1.yaml"
         }
       ],
       "Portfolios":[
