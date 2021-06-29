@@ -70,6 +70,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -135,6 +136,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -195,6 +197,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -255,6 +258,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -330,6 +334,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -390,6 +395,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -460,6 +466,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -520,6 +527,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -580,6 +588,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -640,6 +649,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -700,6 +710,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -760,6 +771,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -820,6 +832,7 @@ Resources:
           - Action:
               - servicecatalog:GetProvisionedProductOutputs
               - servicecatalog:ListRecordHistory
+              - servicecatalog:TagResource
             Effect: Allow
             Resource: "*"
         Version: "2012-10-17"
@@ -939,7 +952,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAAE02OwQrCMBBEv6X3NKUoiDfFg3iy1C8I66qrbbYkG6WE/LtNFfE0b3aZYWq9Xuq62JiXL+H8qCKwQx1PYuChdhd7DDIEUTu2XlwAybcWPQcHmHl6nEmIbVK5Inp0TwIEI6bjqxkGh1eaoqP+C269ZyCTY4pMr2PL3dw2a8MdwZjtl/aOw5D9Dw7TGmMBG8cX6jClpJpRbmyrhV7pVXH3RKULVqhH3X70DTFG2Z3qAAAA
+      Analytics: v2:deflate64:H4sIAAAAAAAAE02OwQ6CMBBEv4V7KRLjwZuGg/EkwS9olkVXoEvarYYQ/l2KxniaN7uZyeQ6zzc6Tw7m5VOo22wCdqinqxhoVdHYS5AhiCrYenEBJN4q9BwcYOTlUZMQ21nFismjexIgGDEd38wwOLzREh31X/DoPQOZGFNkej1V3K1tq5bcEYzRfunkOAzR/+C8rDEWsHTcUIfzPKtylDvbbKv3epc8PFHqghXqUVcffQPUCFN16wAAAA==
     Metadata:
       aws:cdk:path: SprocketsCatalogCoreCrossRegionStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
