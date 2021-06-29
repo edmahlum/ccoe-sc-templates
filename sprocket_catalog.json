@@ -179,7 +179,7 @@
       {
         "VersionName":"1.0",
         "VersionDescription":"Initial version",
-        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-lambdapython-v1.yaml"
+        "VersionURL":"https://raw.githubusercontent.com/edmahlum/ccoe-sc-templates/d2285a39510d6c550fb18cce61862d0d1e6a47f4/sc-lambdapython-v1.yaml"
       }],
     "Portfolios":[
       {"PortfolioID":"serverlessInfra", "Constraints":[
